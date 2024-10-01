@@ -6,6 +6,7 @@
     ApellidoPaterno VARCHAR(255) NOT NULL,
 	ApellidoMaterno VARCHAR(255) NOT NULL,	
     Sexo VARCHAR(1) NULL, 
-    FechaNacimiento DATE NOT NULL      
+    FechaNacimiento DATE NOT NULL,
+    RowVersion  TIMESTAMP  NOT NULL
 
 )

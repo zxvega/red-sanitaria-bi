@@ -13,7 +13,7 @@
     TipoId  INT NOT NULL,
     Diagnostico VARCHAR(255) NOT NULL,     
     Tratamiento VARCHAR(255) NOT NULL, 
-
+    RowVersion  TIMESTAMP  NOT NULL,
     FOREIGN KEY (PacienteId) REFERENCES HIS.Paciente(Id),
     FOREIGN KEY (HospitalId) REFERENCES Catalogo.Hospital(Id),
     FOREIGN KEY (ServicioId) REFERENCES Catalogo.Servicio(Id),

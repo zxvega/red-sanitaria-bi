@@ -7,6 +7,7 @@
 	ApellidoMaterno VARCHAR(255) NOT NULL,	
     Sexo VARCHAR(1) NULL, 
     FechaNacimiento DATE NOT NULL,          
-    SeguridadSocial VARCHAR(15) NOT NULL
+    SeguridadSocial VARCHAR(15) NOT NULL,
+    RowVersion  TIMESTAMP  NOT NULL
 
 )

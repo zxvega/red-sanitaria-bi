@@ -4,5 +4,6 @@
 	AtencionId INT NOT NULL,
 	FechaInicio DATE NOT NULL,
 	FechaFin DATE NOT NULL,
+	RowVersion  TIMESTAMP  NOT NULL
 	FOREIGN KEY (AtencionId) REFERENCES HIS.Atencion(Id),
 )

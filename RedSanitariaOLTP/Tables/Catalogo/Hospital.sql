@@ -4,5 +4,6 @@
     CodigoHospital VARCHAR(255) NOT NULL,		
     Nombre VARCHAR(255) NOT NULL,				
     Ciudad VARCHAR(255) NOT NULL,				
-    Telefono VARCHAR(255)
+    Telefono VARCHAR(255),
+    RowVersion  TIMESTAMP  NOT NULL
 )

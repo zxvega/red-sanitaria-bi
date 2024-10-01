@@ -4,6 +4,7 @@
 	ListaId INT NOT NULL,  
 	EstudioId INT NOT NULL,  
 	Precio Float NOT NULL,
+	RowVersion  TIMESTAMP  NOT NULL,
 	FOREIGN KEY (ListaId) REFERENCES ERP.ListaPrecio(Id),
 	FOREIGN KEY (EstudioId) REFERENCES Catalogo.Estudio(Id),
 )
