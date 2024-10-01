@@ -64,6 +64,7 @@
     <Folder Include="Tables\HIS" />
     <Folder Include="Scripts" />
     <Folder Include="Tables\ERP" />
+    <Folder Include="Security\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Security\Schemas\Catalogo.sql" />
@@ -88,6 +89,12 @@
     <Build Include="Security\Schemas\ERP.sql" />
     <Build Include="Tables\Control\HospitalEstudio.sql" />
     <Build Include="Tables\Control\HospitalListaPrecio.sql" />
+    <Build Include="Security\Stored Procedures\GetDatabaseRowVersion.sql" />
+    <Build Include="Security\Stored Procedures\GetServicioChangesByRowVersion.sql" />
+    <Build Include="Security\Stored Procedures\GetHospitalChangesByRowVersion.sql" />
+    <Build Include="Security\Stored Procedures\GetMedicoChangesByRowVersion.sql" />
+    <Build Include="Security\Stored Procedures\GetPacienteChangesByRowVersion.sql" />
+    <Build Include="Security\Stored Procedures\GetEstudioChangesByRowVersion.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
