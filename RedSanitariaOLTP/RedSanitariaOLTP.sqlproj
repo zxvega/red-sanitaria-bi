@@ -110,5 +110,12 @@
     <None Include="Scripts\DataUnidadServicio.sql" />
     <None Include="Scripts\DataHospitalServicioMedico.sql" />
     <None Include="Scripts\DataPaciente.sql" />
+    <None Include="Scripts\DataListaPrecio.sql" />
+    <None Include="Scripts\DataHospitalListaPrecio.sql" />
+    <None Include="Scripts\DataDetalleListaPrecio.sql" />
+    <None Include="Scripts\DataTipoAtencion.sql" />
+    <None Include="Scripts\DataDirectorHospital.sql" />
+    <None Include="Scripts\DataAtencion.sql" />
+    <None Include="Scripts\DataCuenta.sql" />
   </ItemGroup>
 </Project>

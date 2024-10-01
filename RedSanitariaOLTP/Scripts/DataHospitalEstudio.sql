@@ -11,6 +11,8 @@ INSERT INTO [Control].[HospitalEstudios] (Id, HospitalId, EstudioId) VALUES
 (8,  1, 8),
 (9,  1, 9),
 (10, 1, 10),
-(11, 1, 11);
+(11, 1, 11),
+(12, 1, 12),
+(13, 1, 13);
 
 SET IDENTITY_INSERT [Control].[HospitalEstudios] OFF; 
