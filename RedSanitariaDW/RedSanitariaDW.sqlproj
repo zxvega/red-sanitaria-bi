@@ -61,6 +61,7 @@
     <Folder Include="Tables\staging" />
     <Folder Include="Security" />
     <Folder Include="Security\Schemas" />
+    <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\dbo\DimEstudio.sql" />
@@ -82,5 +83,13 @@
     <Build Include="Tables\dbo\FactAtencionMedica.sql" />
     <Build Include="Tables\dbo\FactEstudioRealizado.sql" />
     <Build Include="Tables\dbo\PackageConfig.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\PackageConfig.data.sql" />
+    <None Include="Scripts\DimDate.data.sql" />
+    <None Include="Scripts\PatchDimDate.data.sql" />
   </ItemGroup>
 </Project>
