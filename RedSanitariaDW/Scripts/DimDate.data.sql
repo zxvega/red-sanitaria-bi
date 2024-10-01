@@ -10,7 +10,7 @@
 		BEGIN
 			SELECT TOP 1 
 				   @startdate = FullDate
-			FROM dbo.DimDate 
+			FROM dbo.DimTiempo 
 			ORDER By DateKey ASC;
 		END
 
@@ -53,7 +53,7 @@
 										WHEN 4 THEN 2
 								  END
 		FROM @datelist              dl 
-		LEFT OUTER JOIN dbo.DimDate dd ON (dl.FullDate = dd.FullDate)
+		LEFT OUTER JOIN dbo.DimTiempo dd ON (dl.FullDate = dd.FullDate)
 		WHERE dd.FullDate IS NULL;
 	COMMIT TRAN
 END
