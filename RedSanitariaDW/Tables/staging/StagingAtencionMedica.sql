@@ -1,11 +1,11 @@
 ﻿CREATE TABLE [staging].[FactAtencionMedica]
 (
-    AtencionSK INT NOT NULL IDENTITY PRIMARY KEY,  -- Clave primaria para DW
-    FechaKey INT NOT NULL,                        -- Relación con DimTiempo
-    HospitalKey INT NOT NULL,                     -- Relación con DimHospital
-    ServicioKey INT NOT NULL,                     -- Relación con DimServicio
-    MedicoKey INT NOT NULL,                       -- Relación con DimMedico
-    PacienteKey INT NOT NULL,                     -- Relación con DimPaciente
+    AtencionSK INT NOT NULL  ,                      
+    FechaKey INT NOT NULL,                        
+    HospitalKey INT NOT NULL,                     
+    ServicioKey INT NOT NULL,                     
+    MedicoKey INT NOT NULL,                       
+    PacienteKey INT NOT NULL,                     
     Diagnostico VARCHAR(255),
     Tratamiento VARCHAR(255),
 )
