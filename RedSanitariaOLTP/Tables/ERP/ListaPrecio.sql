@@ -1,0 +1,5 @@
+﻿CREATE TABLE [ERP].[ListaPrecio]
+(
+	Id INT NOT NULL IDENTITY PRIMARY KEY,
+	NombreCorto VARCHAR(255) NOT NULL,
+)

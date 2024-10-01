@@ -1,0 +1,6 @@
+﻿CREATE TABLE [ERP].[CuentaPaciente]
+(
+	Id INT NOT NULL IDENTITY PRIMARY KEY,
+	AtencionId INT NOT NULL,
+	FOREIGN KEY (AtencionId) REFERENCES HIS.Atencion(Id),
+)
