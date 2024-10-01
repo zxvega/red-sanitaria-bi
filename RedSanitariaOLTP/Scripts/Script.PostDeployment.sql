@@ -15,12 +15,8 @@ Plantilla de script posterior a la implementación
 :r .\DataMedico.sql
 :r .\DataEstudio.sql
 :r .\DataPaciente.sql
-
 :r .\DataEstadoUnidadServicio.sql
-
 :r .\DataHospitalServicio.sql
 :r .\DataHospitalEstudio.sql
-
 :r .\DataUnidadServicio.sql
-
 :r .\DataHospitalServicioMedico.sql

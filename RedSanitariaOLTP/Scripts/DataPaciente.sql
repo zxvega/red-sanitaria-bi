@@ -33,4 +33,4 @@ VALUES
     (100028, '90123458', 'Patricio', 'Díaz', 'Ochoa', 'M', '1981-01-30', 'GHI123456'),
     (100029, '01234569', 'Clara', 'Castañeda', 'Salinas', 'F', '1994-04-04', 'JKL987654');
 
-SET IDENTITY_INSERT [HIS].[Paciente] ON; 
+SET IDENTITY_INSERT [HIS].[Paciente] OFF; 
