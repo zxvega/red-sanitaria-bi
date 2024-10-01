@@ -66,9 +66,9 @@
     <Folder Include="Tables\ERP" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Security\Schemas\catalogo.sql" />
-    <Build Include="Security\Schemas\his.sql" />
-    <Build Include="Security\Schemas\control.sql" />
+    <Build Include="Security\Schemas\Catalogo.sql" />
+    <Build Include="Security\Schemas\HIS.sql" />
+    <Build Include="Security\Schemas\Control.sql" />
     <Build Include="Tables\catalogo\Medico.sql" />
     <Build Include="Tables\control\HospitalServicio.sql" />
     <Build Include="Tables\Catalogo\Servicio.sql" />
@@ -85,7 +85,7 @@
     <Build Include="Tables\Catalogo\Estudio.sql" />
     <Build Include="Tables\ERP\ListaPrecio.sql" />
     <Build Include="Tables\ERP\DetalleListaPrecio.sql" />
-    <Build Include="Security\Schemas\erp.sql" />
+    <Build Include="Security\Schemas\ERP.sql" />
     <Build Include="Tables\Control\HospitalEstudio.sql" />
     <Build Include="Tables\Control\HospitalListaPrecio.sql" />
   </ItemGroup>
@@ -96,5 +96,11 @@
     <None Include="Scripts\DataHospital.sql" />
     <None Include="Scripts\DataServicio.sql" />
     <None Include="Scripts\DataMedico.sql" />
+    <None Include="Scripts\DataEstudio.sql" />
+    <None Include="Scripts\DataHospitalEstudio.sql" />
+    <None Include="Scripts\DataHospitalServicio.sql" />
+    <None Include="Scripts\DataEstadoUnidadServicio.sql" />
+    <None Include="Scripts\DataUnidadServicio.sql" />
+    <None Include="Scripts\DataHospitalServicioMedico.sql" />
   </ItemGroup>
 </Project>
