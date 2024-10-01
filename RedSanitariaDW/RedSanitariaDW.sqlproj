@@ -57,15 +57,30 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Tables" />
+    <Folder Include="Tables\dbo" />
+    <Folder Include="Tables\staging" />
+    <Folder Include="Security" />
+    <Folder Include="Security\Schemas" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Tables\DimHospital.sql" />
-    <Build Include="Tables\DimMedico.sql" />
-    <Build Include="Tables\DimServicio.sql" />
-    <Build Include="Tables\DimEstudio.sql" />
-    <Build Include="Tables\DimPaciente.sql" />
-    <Build Include="Tables\DimTiempo.sql" />
-    <Build Include="Tables\FactAtencionMedica.sql" />
-    <Build Include="Tables\FactEstudioRealizado.sql" />
+    <Build Include="Tables\dbo\DimEstudio.sql" />
+    <Build Include="Tables\dbo\DimHospital.sql" />
+    <Build Include="Tables\staging\StagingEstudio.sql" />
+    <Build Include="Tables\staging\StagingHospital.sql" />
+    <Build Include="Tables\staging\StagingMedico.sql" />
+    <Build Include="Tables\staging\StagingPaciente.sql" />
+    <Build Include="Tables\staging\StagingServicio.sql" />
+    <Build Include="Tables\staging\StagingAtencionMedica.sql" />
+    <Build Include="Tables\staging\StagingEstudioRealizado.sql" />
+    <Build Include="Security\Schemas\staging.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\dbo\DimMedico.sql" />
+    <Build Include="Tables\dbo\DimPaciente.sql" />
+    <Build Include="Tables\dbo\DimServicio.sql" />
+    <Build Include="Tables\dbo\DimTiempo.sql" />
+    <Build Include="Tables\dbo\FactAtencionMedica.sql" />
+    <Build Include="Tables\dbo\FactEstudioRealizado.sql" />
+    <Build Include="Tables\dbo\PackageConfig.sql" />
   </ItemGroup>
 </Project>
