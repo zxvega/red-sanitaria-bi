@@ -102,5 +102,6 @@
     <None Include="Scripts\DataEstadoUnidadServicio.sql" />
     <None Include="Scripts\DataUnidadServicio.sql" />
     <None Include="Scripts\DataHospitalServicioMedico.sql" />
+    <None Include="Scripts\DataPaciente.sql" />
   </ItemGroup>
 </Project>
