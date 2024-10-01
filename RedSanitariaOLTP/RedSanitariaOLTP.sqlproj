@@ -89,4 +89,12 @@
     <Build Include="Tables\Control\HospitalEstudio.sql" />
     <Build Include="Tables\Control\HospitalListaPrecio.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\DataHospital.sql" />
+    <None Include="Scripts\DataServicio.sql" />
+    <None Include="Scripts\DataMedico.sql" />
+  </ItemGroup>
 </Project>
