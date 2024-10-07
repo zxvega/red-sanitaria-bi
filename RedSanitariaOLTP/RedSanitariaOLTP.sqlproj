@@ -95,6 +95,7 @@
     <Build Include="Security\Stored Procedures\GetMedicoChangesByRowVersion.sql" />
     <Build Include="Security\Stored Procedures\GetPacienteChangesByRowVersion.sql" />
     <Build Include="Security\Stored Procedures\GetEstudioChangesByRowVersion.sql" />
+    <Build Include="Security\Stored Procedures\GetAtencionChangesByRowVersion.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
