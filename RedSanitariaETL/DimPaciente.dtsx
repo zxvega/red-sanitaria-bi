@@ -1,0 +1,1423 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/7/2024 12:11:41 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="GPGLZC1536"
+  DTS:CreatorName="SAGUAPAC\gvg1511"
+  DTS:DTSID="{F8BFC9F8-856A-4515-825F-344F1A974947}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="DimPaciente"
+  DTS:PackageType="5"
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{E0F9E706-E02D-4DB1-B4B1-6CA9CF7E638E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[source.RedSanitariaOLTP]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1EA00B89-8340-4CC7-97A8-E9F7D09AB57E}"
+      DTS:ObjectName="source.RedSanitariaOLTP">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{1EA00B89-8340-4CC7-97A8-E9F7D09AB57E}localhost.RedSanitariaOLTP.sa;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAE5lRfYBG6EC2JLMHxHk3nQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADKStdCwoQv7ZwIiqblxBHfAAAAAASAAACgAAAAEAAAAJ70ntW6q+Zc7BUMBBTxap4YAAAATo5JaHDIRjU7ncN/ddNJWH7TvSfSYANaFAAAANsj+LFELGd7u55oDmkxWY081Va3</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[target.RedSanitariaDW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B511A8B0-7AE3-40DE-96FD-84FEFE42F1B1}"
+      DTS:ObjectName="target.RedSanitariaDW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{B511A8B0-7AE3-40DE-96FD-84FEFE42F1B1}localhost.RedSanitariaDW.sa;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAE5lRfYBG6EC2JLMHxHk3nQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADgPU8ccxXjJAi9LCR5QE0GAAAAAASAAACgAAAAEAAAADT1/C0otFj81wXJNL67LRkYAAAAK/Z7YyeVL6gEh8VooUyqTxiH60jjinp3FAAAAPiYhAnaukPQdxHr44Dxzt2tWraO</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5FD59916-7AF9-41B1-BA38-D5570F7D10D3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="dbts">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E1607A3D-2E82-4133-9B31-BB292A8104CD}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="lastRowVersion">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Clean staging DimPaciente"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{5E1E9EDD-36E2-47F8-B7DD-C1BDC55806C1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clean staging DimPaciente"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B511A8B0-7AE3-40DE-96FD-84FEFE42F1B1}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [staging].[DimPaciente]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\GetDatabaseRowVersion"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{12C508DC-B16D-4077-952D-4E0E55CA0696}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="GetDatabaseRowVersion"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1EA00B89-8340-4CC7-97A8-E9F7D09AB57E}"
+          SQLTask:SqlStatementSource="EXECUTE [dbo].[GetDatabaseRowVersion]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="DBTS"
+            SQLTask:DtsVariableName="User::dbts" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\GetLastRowVersion DimPaciente"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{9134C2F8-942C-4BED-BB77-3850395E6011}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="GetLastRowVersion DimPaciente"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B511A8B0-7AE3-40DE-96FD-84FEFE42F1B1}"
+          SQLTask:SqlStatementSource="EXECUTE [dbo].[GetLastPackageRowVersion] @tablename = 'Paciente'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LastRowVersion"
+            SQLTask:DtsVariableName="User::lastRowVersion" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Merge Staging"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{81C79CE4-E66B-4753-8E8D-A04DB2F9B625}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Merge Staging"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B511A8B0-7AE3-40DE-96FD-84FEFE42F1B1}"
+          SQLTask:SqlStatementSource="EXECUTE [dbo].[DW_MergeDimPaciente]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Flujo de datos"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{18E6FFA8-B1CE-4AD5-AC4E-E6E7E836A8FA}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Flujo de datos"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tarea Flujo de datos\Actualizar Existentes"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Actualizar Existentes"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[staging].[DimPaciente]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Actualizar Existentes.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[target.RedSanitariaDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[target.RedSanitariaDW]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].Columns[DocumentoIdentidad]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="DocumentoIdentidad"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].ExternalColumns[DocumentoIdentidad]"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[DocumentoIdentidad]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].Columns[Nombres]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Nombres"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombres]"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[Nombres]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].Columns[ApellidoPaterno]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="ApellidoPaterno"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].ExternalColumns[ApellidoPaterno]"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[ApellidoPaterno]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].Columns[ApellidoMaterno]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="ApellidoMaterno"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].ExternalColumns[ApellidoMaterno]"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[ApellidoMaterno]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].Columns[Sexo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Sexo"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].ExternalColumns[Sexo]"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[Sexo]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].Columns[FechaNacimiento]"
+                      cachedDataType="dbDate"
+                      cachedName="FechaNacimiento"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaNacimiento]"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[FechaNacimiento]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].ExternalColumns[PacienteId]"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].Columns[SeguridadSocial]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="SeguridadSocial"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].ExternalColumns[SeguridadSocial]"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[SeguridadSocial]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].ExternalColumns[DocumentoIdentidad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="DocumentoIdentidad" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombres]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Nombres" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].ExternalColumns[ApellidoPaterno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ApellidoPaterno" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].ExternalColumns[ApellidoMaterno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ApellidoMaterno" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].ExternalColumns[Sexo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Sexo" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaNacimiento]"
+                      dataType="dbDate"
+                      name="FechaNacimiento" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].ExternalColumns[PacienteId]"
+                      dataType="i4"
+                      name="PacienteId" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].ExternalColumns[SeguridadSocial]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="SeguridadSocial" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Actualizar Existentes.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Actualizar Existentes.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Actualizar Existentes.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Actualizar Existentes.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Actualizar Existentes.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Búsqueda"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="Búsqueda"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimPaciente]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimPaciente]) [refTable]
+where [refTable].[PacienteId] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="PacienteSK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PacienteId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DocumentoIdentidad" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Nombres" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ApellidoPaterno" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ApellidoMaterno" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Sexo" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="FechaNacimiento" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SeguridadSocial" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap">#{Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[Id]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Búsqueda.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[target.RedSanitariaDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[target.RedSanitariaDW]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Búsqueda.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Búsqueda.Inputs[Entrada de búsqueda].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[Id]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">PacienteId</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\Tarea Flujo de datos\Búsqueda.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[PacienteSK]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[PacienteSK]"
+                      name="PacienteSK"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">PacienteSK</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en 'Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes'."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\Tarea Flujo de datos\Búsqueda.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\Tarea Flujo de datos\Búsqueda.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Get Paciente"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Get Paciente"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXECUTE  [dbo].[GetPacienteChangesByRowVersion] @startRow = ?, @endRow = ?</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping">"@startRow:Input",{E1607A3D-2E82-4133-9B31-BB292A8104CD};"@endRow:Input",{5FD59916-7AF9-41B1-BA38-D5570F7D10D3};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Get Paciente.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[source.RedSanitariaOLTP]"
+                  connectionManagerRefId="Package.ConnectionManagers[source.RedSanitariaOLTP]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[Id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].ExternalColumns[Id]"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[Id]"
+                      name="Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[DocumentoIdentidad]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].ExternalColumns[DocumentoIdentidad]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[DocumentoIdentidad]"
+                      name="DocumentoIdentidad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[Nombres]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombres]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[Nombres]"
+                      name="Nombres"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[ApellidoPaterno]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].ExternalColumns[ApellidoPaterno]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[ApellidoPaterno]"
+                      name="ApellidoPaterno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[ApellidoMaterno]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].ExternalColumns[ApellidoMaterno]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[ApellidoMaterno]"
+                      name="ApellidoMaterno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[Sexo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].ExternalColumns[Sexo]"
+                      length="1"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[Sexo]"
+                      name="Sexo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[FechaNacimiento]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaNacimiento]"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[FechaNacimiento]"
+                      name="FechaNacimiento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[SeguridadSocial]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].ExternalColumns[SeguridadSocial]"
+                      length="15"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[SeguridadSocial]"
+                      name="SeguridadSocial"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].ExternalColumns[DocumentoIdentidad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="DocumentoIdentidad" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombres]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Nombres" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].ExternalColumns[ApellidoPaterno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ApellidoPaterno" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].ExternalColumns[ApellidoMaterno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ApellidoMaterno" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].ExternalColumns[Sexo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Sexo" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaNacimiento]"
+                      dataType="dbDate"
+                      name="FechaNacimiento" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].ExternalColumns[SeguridadSocial]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="SeguridadSocial" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de error de origen de OLE DB].Columns[Id]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de error de origen de OLE DB].Columns[Id]"
+                      name="Id" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de error de origen de OLE DB].Columns[DocumentoIdentidad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de error de origen de OLE DB].Columns[DocumentoIdentidad]"
+                      name="DocumentoIdentidad" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de error de origen de OLE DB].Columns[Nombres]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de error de origen de OLE DB].Columns[Nombres]"
+                      name="Nombres" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de error de origen de OLE DB].Columns[ApellidoPaterno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de error de origen de OLE DB].Columns[ApellidoPaterno]"
+                      name="ApellidoPaterno" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de error de origen de OLE DB].Columns[ApellidoMaterno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de error de origen de OLE DB].Columns[ApellidoMaterno]"
+                      name="ApellidoMaterno" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de error de origen de OLE DB].Columns[Sexo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de error de origen de OLE DB].Columns[Sexo]"
+                      name="Sexo" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de error de origen de OLE DB].Columns[FechaNacimiento]"
+                      dataType="dbDate"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de error de origen de OLE DB].Columns[FechaNacimiento]"
+                      name="FechaNacimiento" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de error de origen de OLE DB].Columns[SeguridadSocial]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de error de origen de OLE DB].Columns[SeguridadSocial]"
+                      name="SeguridadSocial" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Insertar Nuevos"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Insertar Nuevos"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[DimPaciente]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Insertar Nuevos.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[target.RedSanitariaDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[target.RedSanitariaDW]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].Columns[DocumentoIdentidad]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="DocumentoIdentidad"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].ExternalColumns[DocumentoIdentidad]"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[DocumentoIdentidad]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].Columns[Nombres]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Nombres"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombres]"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[Nombres]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].Columns[ApellidoPaterno]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="ApellidoPaterno"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].ExternalColumns[ApellidoPaterno]"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[ApellidoPaterno]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].Columns[ApellidoMaterno]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="ApellidoMaterno"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].ExternalColumns[ApellidoMaterno]"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[ApellidoMaterno]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].Columns[Sexo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Sexo"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].ExternalColumns[Sexo]"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[Sexo]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].Columns[FechaNacimiento]"
+                      cachedDataType="dbDate"
+                      cachedName="FechaNacimiento"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaNacimiento]"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[FechaNacimiento]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].ExternalColumns[PacienteId]"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].Columns[SeguridadSocial]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="SeguridadSocial"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].ExternalColumns[SeguridadSocial]"
+                      lineageId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB].Columns[SeguridadSocial]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].ExternalColumns[DocumentoIdentidad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="DocumentoIdentidad" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombres]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Nombres" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].ExternalColumns[ApellidoPaterno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ApellidoPaterno" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].ExternalColumns[ApellidoMaterno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ApellidoMaterno" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].ExternalColumns[Sexo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Sexo" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaNacimiento]"
+                      dataType="dbDate"
+                      name="FechaNacimiento" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].ExternalColumns[PacienteSK]"
+                      dataType="i4"
+                      name="PacienteSK" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].ExternalColumns[PacienteId]"
+                      dataType="i4"
+                      name="PacienteId" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].ExternalColumns[SeguridadSocial]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="SeguridadSocial" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Insertar Nuevos.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Insertar Nuevos.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Insertar Nuevos.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Insertar Nuevos.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Insertar Nuevos.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de entradas coincidentes de búsqueda]"
+              endId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de entradas no coincidentes de búsqueda]"
+              endId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de entradas no coincidentes de búsqueda"
+              startId="Package\Tarea Flujo de datos\Búsqueda.Outputs[Salida de entradas no coincidentes de búsqueda]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de OLE DB]"
+              endId="Package\Tarea Flujo de datos\Búsqueda.Inputs[Entrada de búsqueda]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Tarea Flujo de datos\Get Paciente.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update Packaging"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{87BD584B-FCFF-458F-A8EA-4C7ECFAEBAE4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Packaging"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B511A8B0-7AE3-40DE-96FD-84FEFE42F1B1}"
+          SQLTask:SqlStatementSource="EXECUTE [dbo].[UpdateLastPackageRowVersion] @tableName = 'Paciente', @lastRowVersion = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::dbts"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{A23F05FB-F035-4C09-A51A-AEA4AA5A514C}"
+      DTS:From="Package\GetDatabaseRowVersion"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\GetLastRowVersion DimPaciente" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{B07F9D39-6030-41A4-BC0E-9F6417EE8C9C}"
+      DTS:From="Package\GetLastRowVersion DimPaciente"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\Clean staging DimPaciente" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{F7B098DD-8916-41F3-8461-30CDBD8B78A4}"
+      DTS:From="Package\Clean staging DimPaciente"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 2"
+      DTS:To="Package\Tarea Flujo de datos" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{2269B201-525B-4414-87E8-C6D370CCD9BD}"
+      DTS:From="Package\Tarea Flujo de datos"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 3"
+      DTS:To="Package\Merge Staging" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{3EE07346-6068-4A16-AD50-3F9092AF9C19}"
+      DTS:From="Package\Merge Staging"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 4"
+      DTS:To="Package\Update Packaging" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Clean staging DimPaciente"
+          TopLeft="270,176" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\GetDatabaseRowVersion"
+          TopLeft="275,39" />
+        <NodeLayout
+          Size="231,42"
+          Id="Package\GetLastRowVersion DimPaciente"
+          TopLeft="253,107" />
+        <NodeLayout
+          Size="147,42"
+          Id="Package\Merge Staging"
+          TopLeft="303,332" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Tarea Flujo de datos"
+          TopLeft="284,245" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Update Packaging"
+          TopLeft="299,406" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="370.25,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26"
+              Start="0,0"
+              End="0,18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="370.5,149">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27"
+              Start="0,0"
+              End="0,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 2]"
+          TopLeft="372.25,218">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27"
+              Start="0,0"
+              End="0,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 3]"
+          TopLeft="374.25,287">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 4]"
+          TopLeft="378.5,374">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tarea Flujo de datos">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="125,48"
+          Id="Package\Tarea Flujo de datos\Búsqueda"
+          TopLeft="304,133" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Tarea Flujo de datos\Insertar Nuevos"
+          TopLeft="396,338" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Tarea Flujo de datos\Actualizar Existentes"
+          TopLeft="95,282" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Tarea Flujo de datos\Get Paciente"
+          TopLeft="298,53" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de OLE DB]"
+          TopLeft="366.75,95">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de entradas no coincidentes de búsqueda]"
+          TopLeft="386,181">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="87,157"
+              Start="0,0"
+              End="87,149.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.9905213270142" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,59.9905213270142"
+                    Point2="0,63.9905213270142"
+                    Point3="4,63.9905213270142" />
+                  <mssgle:LineSegment
+                    End="83,63.9905213270142" />
+                  <mssgle:CubicBezierSegment
+                    Point1="83,63.9905213270142"
+                    Point2="87,63.9905213270142"
+                    Point3="87,67.9905213270142" />
+                  <mssgle:LineSegment
+                    End="87,149.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-63.3890234375,68.9905213270142,213.778046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="347,181">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-164.5,101"
+              Start="0,0"
+              End="-164.5,93.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.1658767772512" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.1658767772512"
+                    Point2="0,41.1658767772512"
+                    Point3="-4,41.1658767772512" />
+                  <mssgle:LineSegment
+                    End="-160.5,41.1658767772512" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-160.5,41.1658767772512"
+                    Point2="-164.5,41.1658767772512"
+                    Point3="-164.5,45.1658767772512" />
+                  <mssgle:LineSegment
+                    End="-164.5,93.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-182.0690234375,46.1658767772512,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Búsqueda">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimPaciente]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Insertar Nuevos">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Actualizar Existentes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Get Paciente">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
