@@ -62,6 +62,7 @@
     <Folder Include="Security" />
     <Folder Include="Security\Schemas" />
     <Folder Include="Scripts" />
+    <Folder Include="Security\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\dbo\DimEstudio.sql" />
@@ -74,6 +75,13 @@
     <Build Include="Tables\staging\StagingAtencionMedica.sql" />
     <Build Include="Tables\staging\StagingEstudioRealizado.sql" />
     <Build Include="Security\Schemas\staging.sql" />
+    <Build Include="Security\Stored Procedures\UpdateLastPackageRowVersion.sql" />
+    <Build Include="Security\Stored Procedures\GetLastPackageRowVersion.sql" />
+    <Build Include="Security\Stored Procedures\DW_MergeDimHospital.sql" />
+    <Build Include="Security\Stored Procedures\DW_MergeDimServicio.sql" />
+    <Build Include="Security\Stored Procedures\DW_MergeDimEstudio.sql" />
+    <Build Include="Security\Stored Procedures\DW_MergeDimMedico.sql" />
+    <Build Include="Security\Stored Procedures\DW_MergeDimPaciente.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\dbo\DimMedico.sql" />

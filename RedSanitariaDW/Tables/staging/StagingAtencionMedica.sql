@@ -1,9 +1,11 @@
 ﻿CREATE TABLE [staging].[FactAtencionMedica]
 (
     AtencionSK INT NOT NULL  ,                      
-    FechaKey INT NOT NULL,                        
+    FechaIngresoKey INT NOT NULL,                        
+    FechaAltaKey INT NOT NULL, 
     HospitalKey INT NOT NULL,                     
     ServicioKey INT NOT NULL,                     
+    UnidadKey INT NOT NULL, 
     MedicoKey INT NOT NULL,                       
     PacienteKey INT NOT NULL,                     
     Diagnostico VARCHAR(255),
