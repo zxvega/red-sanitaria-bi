@@ -9,24 +9,41 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "RedSanitariaDW", "RedSanita
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Databases", "Databases", "{0EA7018E-F8BA-4960-B604-0FE9C59BB84E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ETL", "ETL", "{BDB51EE1-0FD2-41AC-A9D1-2095BA3A9846}"
+EndProject
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "RedSanitariaETL", "RedSanitariaETL\RedSanitariaETL.dtproj", "{B210A72B-3FC0-4A8A-BAAF-C97F7A00F5B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Development|Any CPU = Development|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{D1D76CB5-2019-455D-939A-ED3573026396}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D1D76CB5-2019-455D-939A-ED3573026396}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1D76CB5-2019-455D-939A-ED3573026396}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D1D76CB5-2019-455D-939A-ED3573026396}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1D76CB5-2019-455D-939A-ED3573026396}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{D1D76CB5-2019-455D-939A-ED3573026396}.Development|Any CPU.Deploy.0 = Debug|Any CPU
 		{D1D76CB5-2019-455D-939A-ED3573026396}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1D76CB5-2019-455D-939A-ED3573026396}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D1D76CB5-2019-455D-939A-ED3573026396}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{965FC80C-2857-47E8-9270-F7A0DB45C82F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{965FC80C-2857-47E8-9270-F7A0DB45C82F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{965FC80C-2857-47E8-9270-F7A0DB45C82F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{965FC80C-2857-47E8-9270-F7A0DB45C82F}.Development|Any CPU.ActiveCfg = Debug|Any CPU
+		{965FC80C-2857-47E8-9270-F7A0DB45C82F}.Development|Any CPU.Build.0 = Debug|Any CPU
+		{965FC80C-2857-47E8-9270-F7A0DB45C82F}.Development|Any CPU.Deploy.0 = Debug|Any CPU
 		{965FC80C-2857-47E8-9270-F7A0DB45C82F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{965FC80C-2857-47E8-9270-F7A0DB45C82F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{965FC80C-2857-47E8-9270-F7A0DB45C82F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B210A72B-3FC0-4A8A-BAAF-C97F7A00F5B4}.Debug|Any CPU.ActiveCfg = Development
+		{B210A72B-3FC0-4A8A-BAAF-C97F7A00F5B4}.Debug|Any CPU.Build.0 = Development
+		{B210A72B-3FC0-4A8A-BAAF-C97F7A00F5B4}.Development|Any CPU.ActiveCfg = Development
+		{B210A72B-3FC0-4A8A-BAAF-C97F7A00F5B4}.Development|Any CPU.Build.0 = Development
+		{B210A72B-3FC0-4A8A-BAAF-C97F7A00F5B4}.Release|Any CPU.ActiveCfg = Development
+		{B210A72B-3FC0-4A8A-BAAF-C97F7A00F5B4}.Release|Any CPU.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -34,6 +51,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D1D76CB5-2019-455D-939A-ED3573026396} = {0EA7018E-F8BA-4960-B604-0FE9C59BB84E}
 		{965FC80C-2857-47E8-9270-F7A0DB45C82F} = {0EA7018E-F8BA-4960-B604-0FE9C59BB84E}
+		{B210A72B-3FC0-4A8A-BAAF-C97F7A00F5B4} = {BDB51EE1-0FD2-41AC-A9D1-2095BA3A9846}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C2B4CD60-7C01-4995-A3A4-DFA13A07805E}
