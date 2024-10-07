@@ -29,6 +29,8 @@ INSERT INTO [Control].[HospitalServicioMedico] (Id,HospitalId, ServicioId, Medic
 (21,1, 7, 21,'2023-01-01', NULL) ,
 (22,1, 7, 22,'2023-01-01', NULL) ,
 (23,1, 7, 23,'2023-01-01', NULL) ,
-(24,1, 7, 24,'2023-01-01', NULL) ;
+(24,1, 7, 24,'2023-01-01', NULL) ,
+
+(25, 1, 1, 30, '2023-01-01', NULL);
 
 SET IDENTITY_INSERT [Control].[HospitalServicioMedico] OFF; 
