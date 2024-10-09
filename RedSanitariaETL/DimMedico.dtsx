@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="DimMedico"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{B7BD2D4C-2BA2-47CB-827B-1BD0041C214A}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{C588F973-AA6E-4685-B81E-B068E5CB9B70}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,11 +25,11 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{A7E68110-3413-4783-B315-5C896855BA04}localhost.RedSanitariaOLTP.sa;Auto Translate=False;">
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{A7E68110-3413-4783-B315-5C896855BA04}localhost.RedSanitariaOLTP.sa;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAE5lRfYBG6EC2JLMHxHk3nQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACIxa/1vWWGnqh+cvwovs+nAAAAAASAAACgAAAAEAAAAMlgZT0BGOoISoZ0bFC2xakYAAAAExhc0DqAShvzyXs1rxrV/CCuoJRODIOJFAAAAO4fGCJoTDQpZ8d/8YKGzemwZHHJ</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQdoGdi7/rECBy/zbqGV68QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACxkQZfuoZF1BjDGtZr7yXBAAAAAASAAACgAAAAEAAAAMYmb0Pxgk/obVIN1dcfcKIYAAAA5KDLJnxJuuf/LUcFR1IeFNWkOqyqdJNLFAAAAPfR9Ez+p2WLkECOeWW/c+FLy4Ow</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -42,11 +42,11 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{4B20C167-5181-4D17-97DB-E4673F21E935}localhost.RedSanitariaDW.sa;Auto Translate=False;">
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{4B20C167-5181-4D17-97DB-E4673F21E935}localhost.RedSanitariaDW.sa;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAE5lRfYBG6EC2JLMHxHk3nQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADadfBmdNgfMWu+SIi0jie5AAAAAASAAACgAAAAEAAAAGirlMrBrSQ7XLdCJsKqZ5kYAAAAaYedrhh/li8QObP3bNM/qj9gpr05oA3zFAAAACfIl7WAk+OEDh1Ti35zkojLF7s8</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQdoGdi7/rECBy/zbqGV68QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAClIVoEFDeMbe765QYdZDtqAAAAAASAAACgAAAAEAAAAIJH8JHjOr+sjSOGwAD+t6oYAAAA0jHueb0yHokelRdN2Lq6Nh51mFs/wslaFAAAAE+MFdK6g3LcRYcchCRoqmcZK6+F</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1347,14 +1347,6 @@ where [refTable].[MedicoId] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\Get Medico">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Tarea Flujo de datos\Actualizar Existentes">
     <Properties>
       <Property>
@@ -1364,6 +1356,14 @@ where [refTable].[MedicoId] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Get Medico">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

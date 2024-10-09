@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="DimHospital"
   DTS:PackageType="5"
-  DTS:VersionBuild="19"
-  DTS:VersionGUID="{2C81076C-C099-4C68-8AED-9F45E15AED2E}">
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{186C9E3D-4E3C-47B1-927C-27A89F82772A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,11 +25,11 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{46FF519B-6520-4BA2-AAA5-114648C9DEB8}localhost.RedSanitariaOLTP.sa;Auto Translate=False;">
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{46FF519B-6520-4BA2-AAA5-114648C9DEB8}localhost.RedSanitariaOLTP.sa;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAE5lRfYBG6EC2JLMHxHk3nQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADJOcHN/Fvgoy4KipAKaungAAAAAASAAACgAAAAEAAAAEETQ0Bd35Mmogpz3smXgYEYAAAAIv97uiyd4pXWMlJD89gJfBOdbnC1O/x3FAAAAJRRsQC8FmNPUlgjPyX0VNaboKTi</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQdoGdi7/rECBy/zbqGV68QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACpJce512+/USQjKhAIPuHDAAAAAASAAACgAAAAEAAAAAzVASJUI98yIFu82mqAvXgYAAAA40/38eG9/RmyFzn5wr+GiwGKusylCi9/FAAAAGcpSxzSniXL5YdzJOh2+950EYdl</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -42,11 +42,11 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{7F714D44-F653-4D23-AE95-9D587F5329A6}localhost.RedSanitariaDW.sa;Auto Translate=False;">
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{7F714D44-F653-4D23-AE95-9D587F5329A6}localhost.RedSanitariaDW.sa;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAE5lRfYBG6EC2JLMHxHk3nQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAqPv0taq1l09lOP6pjZzl6AAAAAASAAACgAAAAEAAAAG5gmy++is1Z2u4vUCjU9jQYAAAANMPZUaHWM73wSgnlkM0HnP/0hCYLlEKyFAAAANOc7229q9lFaa7NT5CRNhfR+Ns7</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQdoGdi7/rECBy/zbqGV68QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACwwwAVMaTPaHCM9hASWWi/AAAAAASAAACgAAAAEAAAAFG8SmgbXU7KVHQm6Hvgvp4YAAAAdCIKGW1iFszXI85niVfyMAJ+4W2h3ManFAAAAKttZsbu6WMtGJHffmsp9GxPGsiR</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>

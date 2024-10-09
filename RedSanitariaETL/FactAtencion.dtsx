@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="FactAtencion"
   DTS:PackageType="5"
-  DTS:VersionBuild="42"
-  DTS:VersionGUID="{78042212-E0F9-47C4-898A-DE1356CE1BF5}">
+  DTS:VersionBuild="44"
+  DTS:VersionGUID="{3AEA4A53-4222-4218-81FA-2FF7D8B6196B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,11 +25,11 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{250BD98A-1EC0-4ACB-A618-FB8F5B39ABEF}localhost.RedSanitariaOLTP.sa;Auto Translate=False;">
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{250BD98A-1EC0-4ACB-A618-FB8F5B39ABEF}localhost.RedSanitariaOLTP.sa;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAE5lRfYBG6EC2JLMHxHk3nQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABAqi8ZYmpCUbxcKwbFMAxwAAAAAASAAACgAAAAEAAAAFQaxq/XPLIIIsE/bheUV2QYAAAACr7D3003r3FbT8JssODD3KG3k8sKHc8sFAAAALQx6X0B0HO4WJllIXv0UjzpPvBo</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQdoGdi7/rECBy/zbqGV68QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABtYJ3SNfpkf5ggnWzwEh0CAAAAAASAAACgAAAAEAAAAFPYagQYdg5Rvp/vc5+13OMYAAAA5njpCjjR6HTs7BeWEsWSvXkDEeAsohqeFAAAAArEIl/yzCJBU+8lRX6Uw2Hf6xLR</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -42,11 +42,11 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{B326CE3A-0506-40DB-8568-4E36364DA745}localhost.RedSanitariaDW.sa;Auto Translate=False;">
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{B326CE3A-0506-40DB-8568-4E36364DA745}localhost.RedSanitariaDW.sa;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAE5lRfYBG6EC2JLMHxHk3nQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADa3iGeJhoVu0TF0NDaWMy/AAAAAASAAACgAAAAEAAAAKnrgmo+DBmVSw8Q35XUTesYAAAABo4ioFiIy9f82x/XiHC/aN6SbOHzd1L9FAAAAM1HAZT/mrTD+sw/QNw+KPJ9Z/Fk</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQdoGdi7/rECBy/zbqGV68QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACAMzhwHcjc94ymG0wz0Us8AAAAAASAAACgAAAAEAAAACrza6EJRFVyOJ/o0hFmhjsYAAAAYHCBojr0m5CNW6aU1CPR9OF36aeW3pJrFAAAAP4LP37lXnRPMmPfoFJNMci7GTZ1</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -694,7 +694,7 @@ where [refTable].[HospitalId] = ?</property>
                   expressionType="Notify"
                   name="SqlCommandParam"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimMedico]) [refTable]
-where [refTable].[MedicoId] = ?</property>
+where [refTable].[MedicoSK] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
@@ -762,7 +762,7 @@ where [refTable].[MedicoId] = ?</property>
                         <property
                           dataType="System.String"
                           description="Especifica la columna de la tabla de referencia con la que se combina una columna."
-                          name="JoinToReferenceColumn">MedicoId</property>
+                          name="JoinToReferenceColumn">MedicoSK</property>
                         <property
                           dataType="System.Null"
                           description="Especifica la columna de la tabla de referencia de la que se copia una columna."
@@ -1905,17 +1905,33 @@ where [refTable].[ServicioId] = ?</property>
           Id="Package\Tarea Flujo de datos\Búsqueda Hospital"
           TopLeft="282,134" />
         <NodeLayout
-          Size="175,42"
-          Id="Package\Tarea Flujo de datos\Actualizar Existentes"
-          TopLeft="62,537" />
+          Size="168,42"
+          Id="Package\Tarea Flujo de datos\Búsqueda Paciente"
+          TopLeft="290,375" />
         <NodeLayout
           Size="159,42"
           Id="Package\Tarea Flujo de datos\Get FactAtencion"
           TopLeft="291,52" />
         <NodeLayout
+          Size="161,42"
+          Id="Package\Tarea Flujo de datos\Búsqueda Medico"
+          TopLeft="292,299" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Tarea Flujo de datos\Búsqueda"
+          TopLeft="281,448" />
+        <NodeLayout
           Size="154,42"
           Id="Package\Tarea Flujo de datos\Insertar Nuevos"
           TopLeft="478,554" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Tarea Flujo de datos\Actualizar Existentes"
+          TopLeft="62,537" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Tarea Flujo de datos\Búsqueda Servicio"
+          TopLeft="288,219" />
         <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida de origen de OLE DB]"
           TopLeft="367.75,94">
@@ -1938,115 +1954,39 @@ where [refTable].[ServicioId] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="165,42"
-          Id="Package\Tarea Flujo de datos\Búsqueda Servicio"
-          TopLeft="288,219" />
-        <NodeLayout
-          Size="161,42"
-          Id="Package\Tarea Flujo de datos\Búsqueda Medico"
-          TopLeft="292,299" />
-        <NodeLayout
-          Size="168,42"
-          Id="Package\Tarea Flujo de datos\Búsqueda Paciente"
-          TopLeft="290,375" />
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de entradas coincidentes de búsqueda]"
-          TopLeft="367.75,176">
+          Id="Package\Tarea Flujo de datos.Paths[Salida de entradas no coincidentes de búsqueda]"
+          TopLeft="395.666666666667,490">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,43"
+              EndConnector="159.333333333333,64"
               Start="0,0"
-              End="0,35.5">
+              End="159.333333333333,56.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.5" />
+                    End="0,21.9498861047836" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.9498861047836"
+                    Point2="0,25.9498861047836"
+                    Point3="4,25.9498861047836" />
+                  <mssgle:LineSegment
+                    End="155.333333333333,25.9498861047836" />
+                  <mssgle:CubicBezierSegment
+                    Point1="155.333333333333,25.9498861047836"
+                    Point2="159.333333333333,25.9498861047836"
+                    Point3="159.333333333333,29.9498861047836" />
+                  <mssgle:LineSegment
+                    End="159.333333333333,56.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-99.8190234375,11.65234375,199.638046875,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de entradas coincidentes de búsqueda1]"
-          TopLeft="371.5,261">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38"
-              Start="0,0"
-              End="0,30.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-99.8190234375,9.15234375,199.638046875,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de entradas coincidentes de búsqueda2]"
-          TopLeft="373.25,341">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34"
-              Start="0,0"
-              End="0,26.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-99.8190234375,7.15234375,199.638046875,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="174,42"
-          Id="Package\Tarea Flujo de datos\Búsqueda"
-          TopLeft="281,448" />
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de entradas coincidentes de búsqueda3]"
-          TopLeft="371,417">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,31"
-              Start="0,0"
-              End="0,23.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-99.8190234375,5.65234375,199.638046875,12.1953125"
+              BoundingBox="-27.2223567708335,30.9498861047836,213.778046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2087,38 +2027,98 @@ where [refTable].[ServicioId] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de entradas no coincidentes de búsqueda]"
-          TopLeft="395.666666666667,490">
+          Id="Package\Tarea Flujo de datos.Paths[Salida de entradas coincidentes de búsqueda3]"
+          TopLeft="371,417">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="159.333333333333,64"
+              EndConnector="0,31"
               Start="0,0"
-              End="159.333333333333,56.5">
+              End="0,23.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.9498861047836" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.9498861047836"
-                    Point2="0,25.9498861047836"
-                    Point3="4,25.9498861047836" />
-                  <mssgle:LineSegment
-                    End="155.333333333333,25.9498861047836" />
-                  <mssgle:CubicBezierSegment
-                    Point1="155.333333333333,25.9498861047836"
-                    Point2="159.333333333333,25.9498861047836"
-                    Point3="159.333333333333,29.9498861047836" />
-                  <mssgle:LineSegment
-                    End="159.333333333333,56.5" />
+                    End="0,23.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-27.2223567708333,30.9498861047836,213.778046875,12.1953125"
+              BoundingBox="-99.8190234375,5.65234375,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de entradas coincidentes de búsqueda2]"
+          TopLeft="373.25,341">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34"
+              Start="0,0"
+              End="0,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-99.8190234375,7.15234375,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de entradas coincidentes de búsqueda1]"
+          TopLeft="371.5,261">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-99.8190234375,9.15234375,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="367.75,176">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-99.8190234375,11.65234375,199.638046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2131,7 +2131,7 @@ where [refTable].[ServicioId] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2141,7 +2141,7 @@ where [refTable].[ServicioId] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2149,57 +2149,31 @@ where [refTable].[ServicioId] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\Actualizar Existentes">
+    design-time-name="Package\Tarea Flujo de datos\Búsqueda Paciente">
     <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimPaciente]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q2:string">Table</Value>
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Tarea Flujo de datos\Get FactAtencion">
     <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\Insertar Nuevos">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\Búsqueda Servicio">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimServicio]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
@@ -2229,35 +2203,12 @@ where [refTable].[ServicioId] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\Búsqueda Paciente">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimPaciente]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Tarea Flujo de datos\Búsqueda">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2267,7 +2218,56 @@ where [refTable].[ServicioId] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Insertar Nuevos">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Actualizar Existentes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Búsqueda Servicio">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimServicio]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

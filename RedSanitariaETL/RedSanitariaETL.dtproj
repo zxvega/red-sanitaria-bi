@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">GPGLZC1536</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAE5lRfYBG6EC2JLMHxHk3nQAAAAACAAAAAAADZgAAwAAAABAAAADapb6CEUU0SQkJ78xEacaHAAAAAASAAACgAAAAEAAAAEywV9ColC1fg1TYGmwwSKKIAAAAyihFT0JSImzlIvqzxo8zp1V3b1Ulyy9BUePuH6kkZKUX9m/Fu0uvyIsjs1uOd4FHCk4EVIi1rL61M3fFpsdL4TFW8/hpdqeB63ra4MMtkiqJ/E2eC06EZGLmQXD3FsLVenq9Vk7iFa2G+WVHLnTxLxMYL8qQRPX8IVoxvDzhvU5UXMZcOR88qBQAAAAUwCHDU8cQlHHC6/tGipJh/+5DmA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQdoGdi7/rECBy/zbqGV68QAAAAACAAAAAAADZgAAwAAAABAAAAC0K53NoRoH4pO3eoUeHGAtAAAAAASAAACgAAAAEAAAAGowVcfmFH+nucvoDA36U+mIAAAAokObaEiZZqiKJjjifUD8dki32ebol0vQRkW8+coXwOOkL44eLKBBXbC0TrgF5v8wyg05xsf/sU0KVry1zHTKCTC2zUzKvuBmJD/7lMkZhyTtCzfJ2HyPLLNPJzxKelHkDqSYv0mkswtmpynDhBk3qSdqb8hDA5sXVFR9qCw5meXxhagYL4mS3hQAAAAhBUjPi3HSkJR8MQV1v9Ddfc17ng==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -47,10 +47,10 @@
                 <SSIS:Property SSIS:Name="Name">DimHospital</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">19</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">20</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{2C81076C-C099-4C68-8AED-9F45E15AED2E}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{186C9E3D-4E3C-47B1-927C-27A89F82772A}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -83,7 +83,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{46FF519B-6520-4BA2-AAA5-114648C9DEB8}localhost.RedSanitariaOLTP.sa;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{46FF519B-6520-4BA2-AAA5-114648C9DEB8}localhost.RedSanitariaOLTP.sa;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -232,7 +232,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{7F714D44-F653-4D23-AE95-9D587F5329A6}localhost.RedSanitariaDW.sa;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{7F714D44-F653-4D23-AE95-9D587F5329A6}localhost.RedSanitariaDW.sa;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -363,10 +363,10 @@
                 <SSIS:Property SSIS:Name="Name">DimEstudio</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">22</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">23</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{1F0EFE93-8D4C-4F98-9394-A58D3B7E09B6}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{88C20A49-A5CC-41A9-8566-DDBFA9AD6211}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -399,7 +399,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{B62204C9-77BF-4E04-85EC-59CEC27CE31F}localhost.RedSanitariaOLTP.sa;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{B62204C9-77BF-4E04-85EC-59CEC27CE31F}localhost.RedSanitariaOLTP.sa;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -548,7 +548,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{FC56E662-80D1-448A-9475-AEDD6EC947CD}localhost.RedSanitariaDW.sa;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{FC56E662-80D1-448A-9475-AEDD6EC947CD}localhost.RedSanitariaDW.sa;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -679,10 +679,10 @@
                 <SSIS:Property SSIS:Name="Name">DimMedico</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">27</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">28</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{B7BD2D4C-2BA2-47CB-827B-1BD0041C214A}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{C588F973-AA6E-4685-B81E-B068E5CB9B70}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -715,7 +715,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{A7E68110-3413-4783-B315-5C896855BA04}localhost.RedSanitariaOLTP.sa;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{A7E68110-3413-4783-B315-5C896855BA04}localhost.RedSanitariaOLTP.sa;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -864,7 +864,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{4B20C167-5181-4D17-97DB-E4673F21E935}localhost.RedSanitariaDW.sa;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{4B20C167-5181-4D17-97DB-E4673F21E935}localhost.RedSanitariaDW.sa;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -995,10 +995,10 @@
                 <SSIS:Property SSIS:Name="Name">DimPaciente</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">30</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">31</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{E0F9E706-E02D-4DB1-B4B1-6CA9CF7E638E}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{BE4799DD-6470-4E92-B822-0C55F579551A}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -1031,7 +1031,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{1EA00B89-8340-4CC7-97A8-E9F7D09AB57E}localhost.RedSanitariaOLTP.sa;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{1EA00B89-8340-4CC7-97A8-E9F7D09AB57E}localhost.RedSanitariaOLTP.sa;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1180,7 +1180,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{B511A8B0-7AE3-40DE-96FD-84FEFE42F1B1}localhost.RedSanitariaDW.sa;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{B511A8B0-7AE3-40DE-96FD-84FEFE42F1B1}localhost.RedSanitariaDW.sa;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1311,10 +1311,10 @@
                 <SSIS:Property SSIS:Name="Name">DimServicio</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">23</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">27</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{FFC37C8D-D939-4311-AA92-10C785E408A5}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{5EA2D2D8-4FB3-434E-8134-DEEDB6A516F6}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -1347,7 +1347,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{0D6F6449-5E73-485A-A7F0-AE3753ED44BD}localhost.RedSanitariaOLTP.sa;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{0D6F6449-5E73-485A-A7F0-AE3753ED44BD}localhost.RedSanitariaOLTP.sa;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1496,7 +1496,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{F37696CB-E615-467B-8DAE-476E954915A7}localhost.RedSanitariaDW.sa;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{F37696CB-E615-467B-8DAE-476E954915A7}localhost.RedSanitariaDW.sa;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1627,10 +1627,10 @@
                 <SSIS:Property SSIS:Name="Name">FactAtencion</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">36</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">43</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{38C06048-AA3F-4B36-9D33-8838DC566C57}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{77716A40-677D-49E4-84C1-03E1628E0FD1}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -1663,7 +1663,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{250BD98A-1EC0-4ACB-A618-FB8F5B39ABEF}localhost.RedSanitariaOLTP.sa;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{250BD98A-1EC0-4ACB-A618-FB8F5B39ABEF}localhost.RedSanitariaOLTP.sa;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -1812,7 +1812,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{B326CE3A-0506-40DB-8568-4E36364DA745}localhost.RedSanitariaDW.sa;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{B326CE3A-0506-40DB-8568-4E36364DA745}localhost.RedSanitariaDW.sa;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>

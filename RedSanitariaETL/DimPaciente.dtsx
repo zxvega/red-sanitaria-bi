@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="DimPaciente"
   DTS:PackageType="5"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{E0F9E706-E02D-4DB1-B4B1-6CA9CF7E638E}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{BE4799DD-6470-4E92-B822-0C55F579551A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,11 +25,11 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{1EA00B89-8340-4CC7-97A8-E9F7D09AB57E}localhost.RedSanitariaOLTP.sa;Auto Translate=False;">
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{1EA00B89-8340-4CC7-97A8-E9F7D09AB57E}localhost.RedSanitariaOLTP.sa;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAE5lRfYBG6EC2JLMHxHk3nQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADKStdCwoQv7ZwIiqblxBHfAAAAAASAAACgAAAAEAAAAJ70ntW6q+Zc7BUMBBTxap4YAAAATo5JaHDIRjU7ncN/ddNJWH7TvSfSYANaFAAAANsj+LFELGd7u55oDmkxWY081Va3</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQdoGdi7/rECBy/zbqGV68QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAD4Y3K0zRm7cN+wtsum2WqkAAAAAASAAACgAAAAEAAAAFGHR11MtsDqZkYlHZWjhkoYAAAAioQnk27v7yJWgLEedndIEHNZLTkoVFYCFAAAAEx2QcbYLQaV8wg8iAPfE8dQ88/Y</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -42,11 +42,11 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{B511A8B0-7AE3-40DE-96FD-84FEFE42F1B1}localhost.RedSanitariaDW.sa;Auto Translate=False;">
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{B511A8B0-7AE3-40DE-96FD-84FEFE42F1B1}localhost.RedSanitariaDW.sa;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAE5lRfYBG6EC2JLMHxHk3nQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADgPU8ccxXjJAi9LCR5QE0GAAAAAASAAACgAAAAEAAAADT1/C0otFj81wXJNL67LRkYAAAAK/Z7YyeVL6gEh8VooUyqTxiH60jjinp3FAAAAPiYhAnaukPQdxHr44Dxzt2tWraO</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQdoGdi7/rECBy/zbqGV68QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACG5mumii5HTQHB3yjXZyq4AAAAAASAAACgAAAAEAAAAJW2tB+9jZWQTPXFnvZVJMwYAAAAQTdqCeP3YNObKZIYppKMD5jZqTD0lHdXFAAAAFj2EKFbv274OyZVExQDFNKiPoSA</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1363,38 +1363,10 @@ where [refTable].[PacienteId] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\Búsqueda">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimPaciente]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\Insertar Nuevos">
+    design-time-name="Package\Tarea Flujo de datos\Get Paciente">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -1412,8 +1384,36 @@ where [refTable].[PacienteId] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\Get Paciente">
+    design-time-name="Package\Tarea Flujo de datos\Insertar Nuevos">
     <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Búsqueda">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimPaciente]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>

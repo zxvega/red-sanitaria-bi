@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="DimServicio"
   DTS:PackageType="5"
-  DTS:VersionBuild="25"
-  DTS:VersionGUID="{2E15995F-04FE-42AF-9998-B726C0A0FA5F}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{5EA2D2D8-4FB3-434E-8134-DEEDB6A516F6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,11 +25,11 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{0D6F6449-5E73-485A-A7F0-AE3753ED44BD}localhost.RedSanitariaOLTP.sa;Auto Translate=False;">
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{0D6F6449-5E73-485A-A7F0-AE3753ED44BD}localhost.RedSanitariaOLTP.sa;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAE5lRfYBG6EC2JLMHxHk3nQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABVlvlLysB4UaXOIo+APtM2AAAAAASAAACgAAAAEAAAADFLG5FaNJeK2gfGkQm074EYAAAAaZeAFOp1f0ydaE8c0n+rX7C/nGXY/paCFAAAAFgGAxsk2ak1Fo+wQ7vDpmcqv9Bt</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQdoGdi7/rECBy/zbqGV68QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADdUAR7ksfPUl1kAmATViO7AAAAAASAAACgAAAAEAAAAFJG15FubCB0kvW9xPP+v7oYAAAAwzofs+hbwLh4Nir6eSK1A7/YuajkDA6BFAAAAKTfm83bTyeJ3ULmg/ulfleKoZPS</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -42,11 +42,11 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{F37696CB-E615-467B-8DAE-476E954915A7}localhost.RedSanitariaDW.sa;Auto Translate=False;">
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{F37696CB-E615-467B-8DAE-476E954915A7}localhost.RedSanitariaDW.sa;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAE5lRfYBG6EC2JLMHxHk3nQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADpkTC83lUxmznUxhPI0/+sAAAAAASAAACgAAAAEAAAAOzBsdjaA37aYVgrSyuwMG8YAAAAA5EfcJex6ugXo5HLl8LN11XIy+YvHYKjFAAAAIN2Oo0SFrRDzdWtQYFdXrCQknmq</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQdoGdi7/rECBy/zbqGV68QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAA1lODOjWO0WY/InKVVTNIxAAAAAASAAACgAAAAEAAAAL1/qTXqf0PSA0CqEcUUoa8YAAAABZjr67T7ZzpcLXRhrwoCt9ngXznZB4L6FAAAAGLgrKz+GpeT2s+Rcf36YxG5VQtV</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1174,7 +1174,7 @@ where [refTable].[ServicioId] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1184,8 +1184,16 @@ where [refTable].[ServicioId] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Get Servicio">
+    <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
@@ -1201,14 +1209,6 @@ where [refTable].[ServicioId] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\Get Servicio">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

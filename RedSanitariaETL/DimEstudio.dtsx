@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="DimEstudio"
   DTS:PackageType="5"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{1F0EFE93-8D4C-4F98-9394-A58D3B7E09B6}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{88C20A49-A5CC-41A9-8566-DDBFA9AD6211}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,11 +25,11 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{B62204C9-77BF-4E04-85EC-59CEC27CE31F}localhost.RedSanitariaOLTP.sa;Auto Translate=False;">
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{B62204C9-77BF-4E04-85EC-59CEC27CE31F}localhost.RedSanitariaOLTP.sa;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAE5lRfYBG6EC2JLMHxHk3nQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAA0LGwYtPWmIxAxMzadfmcuAAAAAASAAACgAAAAEAAAAFETUlJ+wLoAlMP/P6+j6moYAAAAf4OveMgRn9OlxIHwvSZPjWOI3cRPr3DMFAAAAETSv8zjdpv+ZyR/9uTlL9ezW0EX</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQdoGdi7/rECBy/zbqGV68QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAC6IHWZF2HuJXgL2wV0qvT6AAAAAASAAACgAAAAEAAAAIvOE/5R4Vn0mHAgV5A+oQgYAAAA4a8/fp0kN0uXDB16lxKee10Ulyhi7OjYFAAAACPhfmbGH99BXMN/hhqbasvxQ25z</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -42,11 +42,11 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Application Name=SSIS-DimHospital-{FC56E662-80D1-448A-9475-AEDD6EC947CD}localhost.RedSanitariaDW.sa;Auto Translate=False;">
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{FC56E662-80D1-448A-9475-AEDD6EC947CD}localhost.RedSanitariaDW.sa;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAE5lRfYBG6EC2JLMHxHk3nQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACy6K4OyytFLcMXDCSJQCKsAAAAAASAAACgAAAAEAAAAOFtWGueHlBalvPmzHyg6y0YAAAA6KE5s+Te0B6lJtYF9K7XbP0lhW+Wf4v8FAAAAPjnFXWm/mzkhZVrDsZ7yY7s79r+</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQdoGdi7/rECBy/zbqGV68QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADCxpBT0uZ27P/kdos+Nlf0AAAAAASAAACgAAAAEAAAACgtqqb/8jcfSyPi6zvwrakYAAAALJ1lT0imP09YN+0+TP5g2QRrRfwDQFLIFAAAAK+1N2Y/rpnH5fix4a2mgpwMvrTO</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1117,8 +1117,23 @@ where [refTable].[EstudioId] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\Get Estudio">
+    design-time-name="Package\Tarea Flujo de datos\Búsqueda">
     <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimEstudio]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
@@ -1138,23 +1153,8 @@ where [refTable].[EstudioId] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Tarea Flujo de datos\Búsqueda">
+    design-time-name="Package\Tarea Flujo de datos\Get Estudio">
     <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimEstudio]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
