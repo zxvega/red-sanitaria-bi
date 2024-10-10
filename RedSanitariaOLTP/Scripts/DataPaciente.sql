@@ -33,4 +33,50 @@ VALUES
     (100028, '90123458', 'Patricio', 'Díaz', 'Ochoa', 'M', '1981-01-30', 'GHI123456'),
     (100029, '01234569', 'Clara', 'Castañeda', 'Salinas', 'F', '1994-04-04', 'JKL987654');
 
+
+INSERT INTO [HIS].[Paciente] (Id, DocumentoIdentidad, Nombres, ApellidoPaterno, ApellidoMaterno, Sexo, FechaNacimiento, SeguridadSocial)
+VALUES
+    (100030, '12345700', 'Francisco', 'Sánchez', 'Ríos', 'M', '1987-09-05', 'ABC654321'),
+    (100031, '23456800', 'Adriana', 'Martínez', 'Castro', 'F', '1990-11-22', 'DEF123456'),
+    (100032, '34567900', 'Javier', 'Lara', 'Cortés', 'M', '1975-02-17', 'GHI789123'),
+    (100033, '45678100', 'Andrea', 'Domínguez', 'Escobar', 'F', '1988-06-25', 'JKL456789'),
+    (100034, '56789200', 'Rafael', 'Gutiérrez', 'Paredes', 'M', '1981-12-03', 'MNO321654'),
+    (100035, '67890300', 'Lucía', 'Vega', 'Pérez', 'F', '1992-04-14', 'PQR987654'),
+    (100036, '78901400', 'Miguel', 'Navarro', 'Hidalgo', 'M', '1985-08-30', 'STU210987'),
+    (100037, '89012500', 'Rosa', 'Ortiz', 'Naranjo', 'F', '1993-09-12', 'VWX654321'),
+    (100038, '90123600', 'Gustavo', 'Reyes', 'Fernández', 'M', '1980-03-21', 'YZA987123'),
+    (100039, '01234700', 'Paula', 'Alonso', 'Muñoz', 'F', '1991-10-05', 'BCD321987'),
+    (100040, '12345800', 'Alberto', 'Moreno', 'Quintana', 'M', '1983-05-11', 'EFG654321'),
+    (100041, '23456900', 'Marisol', 'Zamora', 'Gómez', 'F', '1995-07-25', 'HIJ987123'),
+    (100042, '34568000', 'Raúl', 'Serrano', 'Medina', 'M', '1987-11-02', 'KLM210654'),
+    (100043, '45679100', 'Daniela', 'Ibarra', 'Vidal', 'F', '1984-01-16', 'NOP543987'),
+    (100044, '56780200', 'Esteban', 'Palacios', 'Ramos', 'M', '1979-06-23', 'QRS123789'),
+    (100045, '67891300', 'Carolina', 'Campos', 'Silva', 'F', '1996-12-10', 'TUV321654'),
+    (100046, '78902400', 'Sergio', 'León', 'Mendoza', 'M', '1992-08-07', 'WXY987123'),
+    (100047, '89013500', 'Marcela', 'Fuentes', 'Herrera', 'F', '1994-05-15', 'ZAB654987'),
+    (100048, '90124600', 'Rodrigo', 'Santos', 'López', 'M', '1982-02-26', 'CDE210321'),
+    (100049, '01235700', 'Isabela', 'Montes', 'Cárdenas', 'F', '1990-10-31', 'FGH543789'),
+    (100050, '12346800', 'Arturo', 'Ramón', 'Guerra', 'M', '1989-07-09', 'IJK123987'),
+    (100051, '23457900', 'Valeria', 'Esquivel', 'Morales', 'F', '1991-03-18', 'LMN789123'),
+    (100052, '34569000', 'Emilio', 'Peralta', 'Cano', 'M', '1978-09-04', 'OPQ654321'),
+    (100053, '45670100', 'Gabriel', 'Ferrer', 'Blanco', 'M', '1985-05-27', 'RST123654'),
+    (100054, '56781200', 'Laura', 'Solís', 'Campos', 'F', '1993-01-05', 'UVW543210'),
+    (100055, '67892300', 'Manuel', 'Nava', 'Ortega', 'M', '1986-04-09', 'XYZ987123'),
+    (100056, '78903400', 'Liliana', 'Hernández', 'Salas', 'F', '1980-11-14', 'ABC654210'),
+    (100057, '89014500', 'Joaquín', 'Caro', 'Ríos', 'M', '1988-06-29', 'DEF321987'),
+    (100058, '90125600', 'Camila', 'Guzmán', 'Lara', 'F', '1982-09-06', 'GHI123210'),
+    (100059, '01236700', 'Felipe', 'Trejo', 'Sosa', 'M', '1976-12-19', 'JKL789654'),
+    (100060, '12347800', 'Alicia', 'Martí', 'Pérez', 'F', '1994-08-03', 'MNO543987'),
+    (100061, '23458900', 'Oscar', 'Flores', 'Méndez', 'M', '1990-01-27', 'PQR987654'),
+    (100062, '34569010', 'Elisa', 'Bravo', 'Ortega', 'F', '1981-07-12', 'STU321123'),
+    (100063, '45670120', 'Tomás', 'Ramos', 'Zavala', 'M', '1987-02-08', 'VWX654123'),
+    (100064, '56781230', 'Ana', 'Calderón', 'Rodríguez', 'F', '1995-03-22', 'YZA321789'),
+    (100065, '67892340', 'Mario', 'Castro', 'Vargas', 'M', '1993-11-17', 'BCD987210'),
+    (100066, '78903450', 'Pablo', 'Duarte', 'Moreno', 'M', '1989-10-01', 'EFG321654'),
+    (100067, '89014560', 'Cecilia', 'Paz', 'López', 'F', '1984-09-20', 'HIJ987456'),
+    (100068, '90125670', 'Humberto', 'Santos', 'Romero', 'M', '1981-05-15', 'KLM123210'),
+    (100069, '01236780', 'Martina', 'Gómez', 'Herrera', 'F', '1994-11-26', 'NOP987654'),
+    (100070, '12347890', 'Enrique', 'López', 'Vargas', 'M', '1986-03-05', 'QRS654321');
+
+
 SET IDENTITY_INSERT [HIS].[Paciente] OFF; 
