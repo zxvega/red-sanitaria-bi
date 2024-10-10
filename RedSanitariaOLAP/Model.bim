@@ -1,0 +1,504 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1600,
+  "model": {
+    "culture": "es-ES",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/localhost;RedSanitariaDW",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "localhost",
+            "database": "RedSanitariaDW"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "UsernamePassword",
+          "Username": "sa",
+          "EncryptConnection": false
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "DimHospital",
+        "columns": [
+          {
+            "name": "HospitalSK",
+            "dataType": "int64",
+            "sourceColumn": "HospitalSK"
+          },
+          {
+            "name": "HospitalId",
+            "dataType": "int64",
+            "sourceColumn": "HospitalId"
+          },
+          {
+            "name": "CodigoHospital",
+            "dataType": "string",
+            "sourceColumn": "CodigoHospital"
+          },
+          {
+            "name": "NombreHospital",
+            "dataType": "string",
+            "sourceColumn": "NombreHospital"
+          },
+          {
+            "name": "Ciudad",
+            "dataType": "string",
+            "sourceColumn": "Ciudad"
+          },
+          {
+            "name": "Telefono",
+            "dataType": "string",
+            "sourceColumn": "Telefono"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;RedSanitariaDW\",",
+                "    dbo_DimHospital = Source{[Schema=\"dbo\",Item=\"DimHospital\"]}[Data]",
+                "in",
+                "    dbo_DimHospital"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimMedico",
+        "columns": [
+          {
+            "name": "MedicoSK",
+            "dataType": "int64",
+            "sourceColumn": "MedicoSK"
+          },
+          {
+            "name": "MedicoId",
+            "dataType": "int64",
+            "sourceColumn": "MedicoId"
+          },
+          {
+            "name": "DocumentoIdentidad",
+            "dataType": "string",
+            "sourceColumn": "DocumentoIdentidad"
+          },
+          {
+            "name": "Nombres",
+            "dataType": "string",
+            "sourceColumn": "Nombres"
+          },
+          {
+            "name": "ApellidoPaterno",
+            "dataType": "string",
+            "sourceColumn": "ApellidoPaterno"
+          },
+          {
+            "name": "ApellidoMaterno",
+            "dataType": "string",
+            "sourceColumn": "ApellidoMaterno"
+          },
+          {
+            "name": "Sexo",
+            "dataType": "string",
+            "sourceColumn": "Sexo"
+          },
+          {
+            "name": "FechaNacimiento",
+            "dataType": "dateTime",
+            "sourceColumn": "FechaNacimiento"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;RedSanitariaDW\",",
+                "    dbo_DimMedico = Source{[Schema=\"dbo\",Item=\"DimMedico\"]}[Data]",
+                "in",
+                "    dbo_DimMedico"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimEstudio",
+        "columns": [
+          {
+            "name": "EstudioSK",
+            "dataType": "int64",
+            "sourceColumn": "EstudioSK"
+          },
+          {
+            "name": "EstudioId",
+            "dataType": "int64",
+            "sourceColumn": "EstudioId"
+          },
+          {
+            "name": "NombreCorto",
+            "dataType": "string",
+            "sourceColumn": "NombreCorto"
+          },
+          {
+            "name": "NombreCompleto",
+            "dataType": "string",
+            "sourceColumn": "NombreCompleto"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;RedSanitariaDW\",",
+                "    dbo_DimEstudio = Source{[Schema=\"dbo\",Item=\"DimEstudio\"]}[Data]",
+                "in",
+                "    dbo_DimEstudio"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimPaciente",
+        "columns": [
+          {
+            "name": "PacienteSK",
+            "dataType": "int64",
+            "sourceColumn": "PacienteSK"
+          },
+          {
+            "name": "PacienteId",
+            "dataType": "int64",
+            "sourceColumn": "PacienteId"
+          },
+          {
+            "name": "DocumentoIdentidad",
+            "dataType": "string",
+            "sourceColumn": "DocumentoIdentidad"
+          },
+          {
+            "name": "Nombres",
+            "dataType": "string",
+            "sourceColumn": "Nombres"
+          },
+          {
+            "name": "ApellidoPaterno",
+            "dataType": "string",
+            "sourceColumn": "ApellidoPaterno"
+          },
+          {
+            "name": "ApellidoMaterno",
+            "dataType": "string",
+            "sourceColumn": "ApellidoMaterno"
+          },
+          {
+            "name": "Sexo",
+            "dataType": "string",
+            "sourceColumn": "Sexo"
+          },
+          {
+            "name": "FechaNacimiento",
+            "dataType": "dateTime",
+            "sourceColumn": "FechaNacimiento"
+          },
+          {
+            "name": "SeguridadSocial",
+            "dataType": "string",
+            "sourceColumn": "SeguridadSocial"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;RedSanitariaDW\",",
+                "    dbo_DimPaciente = Source{[Schema=\"dbo\",Item=\"DimPaciente\"]}[Data]",
+                "in",
+                "    dbo_DimPaciente"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimServicio",
+        "columns": [
+          {
+            "name": "ServicioSK",
+            "dataType": "int64",
+            "sourceColumn": "ServicioSK"
+          },
+          {
+            "name": "ServicioId",
+            "dataType": "int64",
+            "sourceColumn": "ServicioId"
+          },
+          {
+            "name": "NombreCorto",
+            "dataType": "string",
+            "sourceColumn": "NombreCorto"
+          },
+          {
+            "name": "NombreCompleto",
+            "dataType": "string",
+            "sourceColumn": "NombreCompleto"
+          },
+          {
+            "name": "Comentario",
+            "dataType": "string",
+            "sourceColumn": "Comentario"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;RedSanitariaDW\",",
+                "    dbo_DimServicio = Source{[Schema=\"dbo\",Item=\"DimServicio\"]}[Data]",
+                "in",
+                "    dbo_DimServicio"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimTiempo",
+        "columns": [
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "sourceColumn": "DateKey"
+          },
+          {
+            "name": "FullDate",
+            "dataType": "dateTime",
+            "sourceColumn": "FullDate"
+          },
+          {
+            "name": "DayNumberOfWeek",
+            "dataType": "int64",
+            "sourceColumn": "DayNumberOfWeek"
+          },
+          {
+            "name": "DayNameOfWeek",
+            "dataType": "string",
+            "sourceColumn": "DayNameOfWeek"
+          },
+          {
+            "name": "DayNumberOfMonth",
+            "dataType": "int64",
+            "sourceColumn": "DayNumberOfMonth"
+          },
+          {
+            "name": "DayNumberOfYear",
+            "dataType": "int64",
+            "sourceColumn": "DayNumberOfYear"
+          },
+          {
+            "name": "WeekNumberOfYear",
+            "dataType": "int64",
+            "sourceColumn": "WeekNumberOfYear"
+          },
+          {
+            "name": "MonthName",
+            "dataType": "string",
+            "sourceColumn": "MonthName"
+          },
+          {
+            "name": "MonthNumberOfYear",
+            "dataType": "int64",
+            "sourceColumn": "MonthNumberOfYear"
+          },
+          {
+            "name": "CalendarQuarter",
+            "dataType": "int64",
+            "sourceColumn": "CalendarQuarter"
+          },
+          {
+            "name": "CalendarYear",
+            "dataType": "int64",
+            "sourceColumn": "CalendarYear"
+          },
+          {
+            "name": "CalendarSemester",
+            "dataType": "int64",
+            "sourceColumn": "CalendarSemester"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;RedSanitariaDW\",",
+                "    dbo_DimTiempo = Source{[Schema=\"dbo\",Item=\"DimTiempo\"]}[Data]",
+                "in",
+                "    dbo_DimTiempo"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FactAtencionMedica",
+        "columns": [
+          {
+            "name": "AtencionSK",
+            "dataType": "int64",
+            "sourceColumn": "AtencionSK"
+          },
+          {
+            "name": "FechaIngresoKey",
+            "dataType": "int64",
+            "sourceColumn": "FechaIngresoKey"
+          },
+          {
+            "name": "FechaAltaKey",
+            "dataType": "int64",
+            "sourceColumn": "FechaAltaKey"
+          },
+          {
+            "name": "HospitalKey",
+            "dataType": "int64",
+            "sourceColumn": "HospitalKey"
+          },
+          {
+            "name": "ServicioKey",
+            "dataType": "int64",
+            "sourceColumn": "ServicioKey"
+          },
+          {
+            "name": "UnidadKey",
+            "dataType": "int64",
+            "sourceColumn": "UnidadKey"
+          },
+          {
+            "name": "MedicoKey",
+            "dataType": "int64",
+            "sourceColumn": "MedicoKey"
+          },
+          {
+            "name": "PacienteKey",
+            "dataType": "int64",
+            "sourceColumn": "PacienteKey"
+          },
+          {
+            "name": "Diagnostico",
+            "dataType": "string",
+            "sourceColumn": "Diagnostico"
+          },
+          {
+            "name": "Tratamiento",
+            "dataType": "string",
+            "sourceColumn": "Tratamiento"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;RedSanitariaDW\",",
+                "    dbo_FactAtencionMedica = Source{[Schema=\"dbo\",Item=\"FactAtencionMedica\"]}[Data]",
+                "in",
+                "    dbo_FactAtencionMedica"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "CantidadAtenciones",
+            "expression": " COUNT(FactAtencionMedica[AtencionSK])"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "3d793c8c-89e3-4c79-a5a4-a4b4e7848f03",
+        "fromTable": "FactAtencionMedica",
+        "fromColumn": "FechaAltaKey",
+        "toTable": "DimTiempo",
+        "toColumn": "DateKey",
+        "isActive": false
+      },
+      {
+        "name": "c91beb68-e84a-4997-9204-1f03fac6eb7a",
+        "fromTable": "FactAtencionMedica",
+        "fromColumn": "HospitalKey",
+        "toTable": "DimHospital",
+        "toColumn": "HospitalSK"
+      },
+      {
+        "name": "b670153f-0d76-4131-a3de-ca38c1b84b92",
+        "fromTable": "FactAtencionMedica",
+        "fromColumn": "MedicoKey",
+        "toTable": "DimMedico",
+        "toColumn": "MedicoSK"
+      },
+      {
+        "name": "46ab00e9-7a2a-4741-a616-4ab5eeb1edf9",
+        "fromTable": "FactAtencionMedica",
+        "fromColumn": "PacienteKey",
+        "toTable": "DimPaciente",
+        "toColumn": "PacienteSK"
+      },
+      {
+        "name": "9376310d-322b-41cd-9309-ed4357f0fc0c",
+        "fromTable": "FactAtencionMedica",
+        "fromColumn": "ServicioKey",
+        "toTable": "DimServicio",
+        "toColumn": "ServicioSK"
+      },
+      {
+        "name": "b4abd992-b8b3-4dec-a3cc-e83ab6d040ec",
+        "fromTable": "FactAtencionMedica",
+        "fromColumn": "FechaIngresoKey",
+        "toTable": "DimTiempo",
+        "toColumn": "DateKey"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "700"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
