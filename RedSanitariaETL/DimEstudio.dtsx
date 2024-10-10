@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="DimEstudio"
   DTS:PackageType="5"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{88C20A49-A5CC-41A9-8566-DDBFA9AD6211}">
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{F9E2DCCC-ADE2-45B7-B4B5-AAE61541DE72}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,12 +25,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{B62204C9-77BF-4E04-85EC-59CEC27CE31F}localhost.RedSanitariaOLTP.sa;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQdoGdi7/rECBy/zbqGV68QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAC6IHWZF2HuJXgL2wV0qvT6AAAAAASAAACgAAAAEAAAAIvOE/5R4Vn0mHAgV5A+oQgYAAAA4a8/fp0kN0uXDB16lxKee10Ulyhi7OjYFAAAACPhfmbGH99BXMN/hhqbasvxQ25z</DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=RedSanitariaOLTP;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-DimEstudio-{B62204C9-77BF-4E04-85EC-59CEC27CE31F}source.RedSanitariaOLTP;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -42,12 +37,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{FC56E662-80D1-448A-9475-AEDD6EC947CD}localhost.RedSanitariaDW.sa;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQdoGdi7/rECBy/zbqGV68QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADCxpBT0uZ27P/kdos+Nlf0AAAAAASAAACgAAAAEAAAACgtqqb/8jcfSyPi6zvwrakYAAAALJ1lT0imP09YN+0+TP5g2QRrRfwDQFLIFAAAAK+1N2Y/rpnH5fix4a2mgpwMvrTO</DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=RedSanitariaDW;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-DimEstudio-{FC56E662-80D1-448A-9475-AEDD6EC947CD}target.RedSanitariaDW;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -876,7 +866,7 @@ where [refTable].[EstudioId] = ?</property>
         <NodeLayout
           Size="147,42"
           Id="Package\Merge Staging"
-          TopLeft="303,332" />
+          TopLeft="298,327" />
         <NodeLayout
           Size="176,42"
           Id="Package\Tarea Flujo de datos"
@@ -884,7 +874,7 @@ where [refTable].[EstudioId] = ?</property>
         <NodeLayout
           Size="163,42"
           Id="Package\Update Packaging"
-          TopLeft="299,406" />
+          TopLeft="294,406" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
           TopLeft="369.75,81">
@@ -953,18 +943,18 @@ where [refTable].[EstudioId] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 3]"
-          TopLeft="374.25,287">
+          TopLeft="371.75,287">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,45"
+              EndConnector="0,40"
               Start="0,0"
-              End="0,37.5">
+              End="0,32.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37.5" />
+                    End="0,32.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -975,18 +965,18 @@ where [refTable].[EstudioId] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 4]"
-          TopLeft="378.5,374">
+          TopLeft="373.5,369">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,32"
+              EndConnector="0,37"
               Start="0,0"
-              End="0,24.5">
+              End="0,29.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.5" />
+                    End="0,29.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1004,17 +994,17 @@ where [refTable].[EstudioId] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="133,42"
-          Id="Package\Tarea Flujo de datos\Get Estudio"
-          TopLeft="298,53" />
+          Size="125,48"
+          Id="Package\Tarea Flujo de datos\Búsqueda"
+          TopLeft="304,133" />
         <NodeLayout
           Size="168,42"
           Id="Package\Tarea Flujo de datos\Actualizar Existentes"
           TopLeft="152,281" />
         <NodeLayout
-          Size="125,48"
-          Id="Package\Tarea Flujo de datos\Búsqueda"
-          TopLeft="304,133" />
+          Size="133,42"
+          Id="Package\Tarea Flujo de datos\Get Estudio"
+          TopLeft="298,53" />
         <NodeLayout
           Size="154,42"
           Id="Package\Tarea Flujo de datos\Insertar Nuevos"
@@ -1038,42 +1028,8 @@ where [refTable].[EstudioId] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Tarea Flujo de datos.Paths[Salida de entradas coincidentes de búsqueda]"
-          TopLeft="366.5,181">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-130.5,100"
-              Start="0,0"
-              End="-130.5,92.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,46"
-                    Point2="0,50"
-                    Point3="-4,50" />
-                  <mssgle:LineSegment
-                    End="-126.5,50" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-126.5,50"
-                    Point2="-130.5,50"
-                    Point3="-130.5,54" />
-                  <mssgle:LineSegment
-                    End="-130.5,92.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-165.0690234375,55,199.638046875,12.1953125"
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1110,6 +1066,42 @@ where [refTable].[EstudioId] = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-46.8890234375,46.9810426540284,213.778046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="366.5,181">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-130.5,100"
+              Start="0,0"
+              End="-130.5,92.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,46"
+                    Point2="0,50"
+                    Point3="-4,50" />
+                  <mssgle:LineSegment
+                    End="-126.5,50" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-126.5,50"
+                    Point2="-130.5,50"
+                    Point3="-130.5,54" />
+                  <mssgle:LineSegment
+                    End="-130.5,92.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-165.0690234375,55,199.638046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>

@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="DimMedico"
   DTS:PackageType="5"
-  DTS:VersionBuild="28"
-  DTS:VersionGUID="{C588F973-AA6E-4685-B81E-B068E5CB9B70}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{F3BE97E6-44D4-493C-93F7-C8984C8C670E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,12 +25,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{A7E68110-3413-4783-B315-5C896855BA04}localhost.RedSanitariaOLTP.sa;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQdoGdi7/rECBy/zbqGV68QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACxkQZfuoZF1BjDGtZr7yXBAAAAAASAAACgAAAAEAAAAMYmb0Pxgk/obVIN1dcfcKIYAAAA5KDLJnxJuuf/LUcFR1IeFNWkOqyqdJNLFAAAAPfR9Ez+p2WLkECOeWW/c+FLy4Ow</DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=RedSanitariaOLTP;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-DimMedico-{A7E68110-3413-4783-B315-5C896855BA04}source.RedSanitariaOLTP;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -42,12 +37,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{4B20C167-5181-4D17-97DB-E4673F21E935}localhost.RedSanitariaDW.sa;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQdoGdi7/rECBy/zbqGV68QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAClIVoEFDeMbe765QYdZDtqAAAAAASAAACgAAAAEAAAAIJH8JHjOr+sjSOGwAD+t6oYAAAA0jHueb0yHokelRdN2Lq6Nh51mFs/wslaFAAAAE+MFdK6g3LcRYcchCRoqmcZK6+F</DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=RedSanitariaDW;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-DimMedico-{4B20C167-5181-4D17-97DB-E4673F21E935}target.RedSanitariaDW;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -278,7 +268,8 @@
                       lineageId="Package\Tarea Flujo de datos\Get Medico.Outputs[Salida de origen de OLE DB].Columns[Sexo]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].Columns[FechaNacimiento]"
-                      cachedDataType="dbDate"
+                      cachedDataType="wstr"
+                      cachedLength="10"
                       cachedName="FechaNacimiento"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaNacimiento]"
                       lineageId="Package\Tarea Flujo de datos\Get Medico.Outputs[Salida de origen de OLE DB].Columns[FechaNacimiento]" />
@@ -327,7 +318,8 @@
                       name="Sexo" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\Actualizar Existentes.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaNacimiento]"
-                      dataType="dbDate"
+                      dataType="wstr"
+                      length="10"
                       name="FechaNacimiento" />
                   </externalMetadataColumns>
                 </input>
@@ -641,10 +633,11 @@ where [refTable].[MedicoId] = ?</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Get Medico.Outputs[Salida de origen de OLE DB].Columns[FechaNacimiento]"
-                      dataType="dbDate"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Get Medico.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaNacimiento]"
+                      length="10"
                       lineageId="Package\Tarea Flujo de datos\Get Medico.Outputs[Salida de origen de OLE DB].Columns[FechaNacimiento]"
                       name="FechaNacimiento"
                       truncationRowDisposition="FailComponent" />
@@ -687,7 +680,8 @@ where [refTable].[MedicoId] = ?</property>
                       name="Sexo" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\Get Medico.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaNacimiento]"
-                      dataType="dbDate"
+                      dataType="wstr"
+                      length="10"
                       name="FechaNacimiento" />
                   </externalMetadataColumns>
                 </output>
@@ -738,7 +732,8 @@ where [refTable].[MedicoId] = ?</property>
                       name="Sexo" />
                     <outputColumn
                       refId="Package\Tarea Flujo de datos\Get Medico.Outputs[Salida de error de origen de OLE DB].Columns[FechaNacimiento]"
-                      dataType="dbDate"
+                      dataType="wstr"
+                      length="10"
                       lineageId="Package\Tarea Flujo de datos\Get Medico.Outputs[Salida de error de origen de OLE DB].Columns[FechaNacimiento]"
                       name="FechaNacimiento" />
                     <outputColumn
@@ -872,7 +867,8 @@ where [refTable].[MedicoId] = ?</property>
                       lineageId="Package\Tarea Flujo de datos\Get Medico.Outputs[Salida de origen de OLE DB].Columns[Sexo]" />
                     <inputColumn
                       refId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].Columns[FechaNacimiento]"
-                      cachedDataType="dbDate"
+                      cachedDataType="wstr"
+                      cachedLength="10"
                       cachedName="FechaNacimiento"
                       externalMetadataColumnId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaNacimiento]"
                       lineageId="Package\Tarea Flujo de datos\Get Medico.Outputs[Salida de origen de OLE DB].Columns[FechaNacimiento]" />
@@ -925,7 +921,8 @@ where [refTable].[MedicoId] = ?</property>
                       name="Sexo" />
                     <externalMetadataColumn
                       refId="Package\Tarea Flujo de datos\Insertar Nuevos.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaNacimiento]"
-                      dataType="dbDate"
+                      dataType="wstr"
+                      length="10"
                       name="FechaNacimiento" />
                   </externalMetadataColumns>
                 </input>
@@ -1206,13 +1203,13 @@ where [refTable].[MedicoId] = ?</property>
           Id="Package\Tarea Flujo de datos\Insertar Nuevos"
           TopLeft="396,363" />
         <NodeLayout
-          Size="133,42"
-          Id="Package\Tarea Flujo de datos\Get Medico"
-          TopLeft="298,53" />
-        <NodeLayout
           Size="175,42"
           Id="Package\Tarea Flujo de datos\Actualizar Existentes"
           TopLeft="95,282" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Tarea Flujo de datos\Get Medico"
+          TopLeft="298,53" />
         <EdgeLayout
           Id="Package\Tarea Flujo de datos.Paths[Salida de origen de OLE DB]"
           TopLeft="365.5,95">

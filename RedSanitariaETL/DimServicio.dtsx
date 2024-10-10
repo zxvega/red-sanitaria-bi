@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="DimServicio"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{5EA2D2D8-4FB3-434E-8134-DEEDB6A516F6}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{DA5B93A9-6772-4D4A-8B74-D28FEDE3A3BE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,12 +25,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaOLTP;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{0D6F6449-5E73-485A-A7F0-AE3753ED44BD}localhost.RedSanitariaOLTP.sa;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQdoGdi7/rECBy/zbqGV68QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADdUAR7ksfPUl1kAmATViO7AAAAAASAAACgAAAAEAAAAFJG15FubCB0kvW9xPP+v7oYAAAAwzofs+hbwLh4Nir6eSK1A7/YuajkDA6BFAAAAKTfm83bTyeJ3ULmg/ulfleKoZPS</DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=RedSanitariaOLTP;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-DimServicio-{0D6F6449-5E73-485A-A7F0-AE3753ED44BD}source.RedSanitariaOLTP;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -42,12 +37,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=RedSanitariaDW;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-DimHospital-{F37696CB-E615-467B-8DAE-476E954915A7}localhost.RedSanitariaDW.sa;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQdoGdi7/rECBy/zbqGV68QAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAA1lODOjWO0WY/InKVVTNIxAAAAAASAAACgAAAAEAAAAL1/qTXqf0PSA0CqEcUUoa8YAAAABZjr67T7ZzpcLXRhrwoCt9ngXznZB4L6FAAAAGLgrKz+GpeT2s+Rcf36YxG5VQtV</DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=RedSanitariaDW;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-DimServicio-{F37696CB-E615-467B-8DAE-476E954915A7}target.RedSanitariaDW;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -1060,13 +1050,13 @@ where [refTable].[ServicioId] = ?</property>
           Id="Package\Tarea Flujo de datos\Búsqueda"
           TopLeft="304,133" />
         <NodeLayout
-          Size="168,42"
-          Id="Package\Tarea Flujo de datos\Actualizar Existentes"
-          TopLeft="152,281" />
-        <NodeLayout
           Size="135,42"
           Id="Package\Tarea Flujo de datos\Get Servicio"
           TopLeft="298,53" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Tarea Flujo de datos\Actualizar Existentes"
+          TopLeft="152,281" />
         <NodeLayout
           Size="154,42"
           Id="Package\Tarea Flujo de datos\Insertar Nuevos"
