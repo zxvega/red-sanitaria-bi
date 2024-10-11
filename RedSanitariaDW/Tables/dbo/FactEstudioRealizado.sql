@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[FactEstudioRealizado]
 (	
-    EstudioSK INT NOT NULL IDENTITY PRIMARY KEY,  -- Clave primaria para DW
+    DetalleCuentaSK INT NOT NULL PRIMARY KEY,  -- Clave primaria para DW
     FechaKey INT NOT NULL,                        -- Relación con DimTiempo
     HospitalKey INT NOT NULL,                     -- Relación con DimHospital
     ServicioKey INT NOT NULL,                     -- Relación con DimServicio

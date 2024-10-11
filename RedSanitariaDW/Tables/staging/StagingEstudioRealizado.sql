@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [staging].[FactEstudioRealizado]
 (	
-    EstudioSK INT NOT NULL,  
+    DetalleCuentaSK INT NOT NULL,  
     FechaKey INT NOT NULL,                       
     HospitalKey INT NOT NULL,                    
     ServicioKey INT NOT NULL,                     

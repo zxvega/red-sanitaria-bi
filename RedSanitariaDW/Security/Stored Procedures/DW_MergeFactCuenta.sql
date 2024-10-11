@@ -13,6 +13,6 @@ BEGIN
 	   ,Cantidad        = sa.Cantidad
 	   ,Precio       = sa.Precio
 	FROM [dbo].[FactEstudioRealizado]         da
-	INNER JOIN [staging].[FactEstudioRealizado] sa ON (da.EstudioSK = sa.EstudioSK )
+	INNER JOIN [staging].[FactEstudioRealizado] sa ON (da.DetalleCuentaSK = sa.DetalleCuentaSK )
 END
 GO

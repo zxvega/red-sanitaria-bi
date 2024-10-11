@@ -40,3 +40,10 @@ IF NOT EXISTS(SELECT TOP(1) 1
 	INSERT [dbo].[PackageConfig] ([TableName], [LastRowVersion]) VALUES ('Atencion', 0)
  END
 GO
+IF NOT EXISTS(SELECT TOP(1) 1
+              FROM [dbo].[PackageConfig]
+			  WHERE [TableName] = 'DetalleCuenta')
+ BEGIN
+	INSERT [dbo].[PackageConfig] ([TableName], [LastRowVersion]) VALUES ('DetalleCuenta', 0)
+ END
+GO
