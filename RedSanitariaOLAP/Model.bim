@@ -18,12 +18,55 @@
         },
         "credential": {
           "AuthenticationKind": "UsernamePassword",
+          "kind": "SQL",
+          "path": "localhost;RedSanitariaDW",
           "Username": "sa",
           "EncryptConnection": false
         }
       }
     ],
     "tables": [
+      {
+        "name": "DimEstudio",
+        "columns": [
+          {
+            "name": "EstudioSK",
+            "dataType": "int64",
+            "sourceColumn": "EstudioSK"
+          },
+          {
+            "name": "EstudioId",
+            "dataType": "int64",
+            "sourceColumn": "EstudioId"
+          },
+          {
+            "name": "NombreCorto",
+            "dataType": "string",
+            "sourceColumn": "NombreCorto"
+          },
+          {
+            "name": "NombreCompleto",
+            "dataType": "string",
+            "sourceColumn": "NombreCompleto"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;RedSanitariaDW\",",
+                "    dbo_DimEstudio = Source{[Schema=\"dbo\",Item=\"DimEstudio\"]}[Data]",
+                "in",
+                "    dbo_DimEstudio"
+              ]
+            }
+          }
+        ]
+      },
       {
         "name": "DimHospital",
         "columns": [
@@ -117,6 +160,13 @@
             "name": "FechaNacimiento",
             "dataType": "dateTime",
             "sourceColumn": "FechaNacimiento"
+          },
+          {
+            "type": "calculated",
+            "name": "Medico",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "CONCATENATE(CONCATENATE(CONCATENATE(CONCATENATE([Nombres],\" \"),[ApellidoPaterno]),\" \"),[ApellidoMaterno])"
           }
         ],
         "partitions": [
@@ -131,47 +181,6 @@
                 "    dbo_DimMedico = Source{[Schema=\"dbo\",Item=\"DimMedico\"]}[Data]",
                 "in",
                 "    dbo_DimMedico"
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "name": "DimEstudio",
-        "columns": [
-          {
-            "name": "EstudioSK",
-            "dataType": "int64",
-            "sourceColumn": "EstudioSK"
-          },
-          {
-            "name": "EstudioId",
-            "dataType": "int64",
-            "sourceColumn": "EstudioId"
-          },
-          {
-            "name": "NombreCorto",
-            "dataType": "string",
-            "sourceColumn": "NombreCorto"
-          },
-          {
-            "name": "NombreCompleto",
-            "dataType": "string",
-            "sourceColumn": "NombreCompleto"
-          }
-        ],
-        "partitions": [
-          {
-            "name": "Partition",
-            "dataView": "full",
-            "source": {
-              "type": "m",
-              "expression": [
-                "let",
-                "    Source = #\"SQL/localhost;RedSanitariaDW\",",
-                "    dbo_DimEstudio = Source{[Schema=\"dbo\",Item=\"DimEstudio\"]}[Data]",
-                "in",
-                "    dbo_DimEstudio"
               ]
             }
           }
@@ -262,7 +271,7 @@
             "sourceColumn": "NombreCorto"
           },
           {
-            "name": "NombreCompleto",
+            "name": "Servicio",
             "dataType": "string",
             "sourceColumn": "NombreCompleto"
           },
@@ -286,6 +295,83 @@
                 "    dbo_DimServicio"
               ]
             }
+          }
+        ]
+      },
+      {
+        "name": "FactAtencionMedica",
+        "columns": [
+          {
+            "name": "AtencionSK",
+            "dataType": "int64",
+            "sourceColumn": "AtencionSK"
+          },
+          {
+            "name": "FechaIngresoKey",
+            "dataType": "int64",
+            "sourceColumn": "FechaIngresoKey"
+          },
+          {
+            "name": "FechaAltaKey",
+            "dataType": "int64",
+            "sourceColumn": "FechaAltaKey"
+          },
+          {
+            "name": "HospitalKey",
+            "dataType": "int64",
+            "sourceColumn": "HospitalKey"
+          },
+          {
+            "name": "ServicioKey",
+            "dataType": "int64",
+            "sourceColumn": "ServicioKey"
+          },
+          {
+            "name": "UnidadKey",
+            "dataType": "int64",
+            "sourceColumn": "UnidadKey"
+          },
+          {
+            "name": "MedicoKey",
+            "dataType": "int64",
+            "sourceColumn": "MedicoKey"
+          },
+          {
+            "name": "PacienteKey",
+            "dataType": "int64",
+            "sourceColumn": "PacienteKey"
+          },
+          {
+            "name": "Diagnostico",
+            "dataType": "string",
+            "sourceColumn": "Diagnostico"
+          },
+          {
+            "name": "Tratamiento",
+            "dataType": "string",
+            "sourceColumn": "Tratamiento"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;RedSanitariaDW\",",
+                "    dbo_FactAtencionMedica = Source{[Schema=\"dbo\",Item=\"FactAtencionMedica\"]}[Data]",
+                "in",
+                "    dbo_FactAtencionMedica"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Cantidad",
+            "expression": "COUNT(FactAtencionMedica[AtencionSK])"
           }
         ]
       },
@@ -371,22 +457,17 @@
         ]
       },
       {
-        "name": "FactAtencionMedica",
+        "name": "FactEstudioRealizado",
         "columns": [
           {
-            "name": "AtencionSK",
+            "name": "DetalleCuentaSK",
             "dataType": "int64",
-            "sourceColumn": "AtencionSK"
+            "sourceColumn": "DetalleCuentaSK"
           },
           {
-            "name": "FechaIngresoKey",
+            "name": "FechaKey",
             "dataType": "int64",
-            "sourceColumn": "FechaIngresoKey"
-          },
-          {
-            "name": "FechaAltaKey",
-            "dataType": "int64",
-            "sourceColumn": "FechaAltaKey"
+            "sourceColumn": "FechaKey"
           },
           {
             "name": "HospitalKey",
@@ -399,11 +480,6 @@
             "sourceColumn": "ServicioKey"
           },
           {
-            "name": "UnidadKey",
-            "dataType": "int64",
-            "sourceColumn": "UnidadKey"
-          },
-          {
             "name": "MedicoKey",
             "dataType": "int64",
             "sourceColumn": "MedicoKey"
@@ -414,14 +490,26 @@
             "sourceColumn": "PacienteKey"
           },
           {
-            "name": "Diagnostico",
-            "dataType": "string",
-            "sourceColumn": "Diagnostico"
+            "name": "EstudioKey",
+            "dataType": "int64",
+            "sourceColumn": "EstudioKey"
           },
           {
-            "name": "Tratamiento",
-            "dataType": "string",
-            "sourceColumn": "Tratamiento"
+            "name": "Cantidad",
+            "dataType": "int64",
+            "sourceColumn": "Cantidad"
+          },
+          {
+            "name": "Precio",
+            "dataType": "double",
+            "sourceColumn": "Precio"
+          },
+          {
+            "type": "calculated",
+            "name": "Subtotal",
+            "dataType": "double",
+            "isDataTypeInferred": true,
+            "expression": "[Cantidad]*[Precio]"
           }
         ],
         "partitions": [
@@ -433,24 +521,24 @@
               "expression": [
                 "let",
                 "    Source = #\"SQL/localhost;RedSanitariaDW\",",
-                "    dbo_FactAtencionMedica = Source{[Schema=\"dbo\",Item=\"FactAtencionMedica\"]}[Data]",
+                "    dbo_FactEstudioRealizado = Source{[Schema=\"dbo\",Item=\"FactEstudioRealizado\"]}[Data]",
                 "in",
-                "    dbo_FactAtencionMedica"
+                "    dbo_FactEstudioRealizado"
               ]
             }
           }
         ],
         "measures": [
           {
-            "name": "CantidadAtenciones",
-            "expression": " COUNT(FactAtencionMedica[AtencionSK])"
+            "name": "Total",
+            "expression": " SUM(FactEstudioRealizado[Subtotal])"
           }
         ]
       }
     ],
     "relationships": [
       {
-        "name": "3d793c8c-89e3-4c79-a5a4-a4b4e7848f03",
+        "name": "d0d9fe44-3a75-4793-9480-866966177fe6",
         "fromTable": "FactAtencionMedica",
         "fromColumn": "FechaAltaKey",
         "toTable": "DimTiempo",
@@ -458,35 +546,35 @@
         "isActive": false
       },
       {
-        "name": "c91beb68-e84a-4997-9204-1f03fac6eb7a",
+        "name": "01faea3d-8d54-40ef-a4d5-92d7bd433d1e",
         "fromTable": "FactAtencionMedica",
         "fromColumn": "HospitalKey",
         "toTable": "DimHospital",
         "toColumn": "HospitalSK"
       },
       {
-        "name": "b670153f-0d76-4131-a3de-ca38c1b84b92",
+        "name": "f5ced00b-4999-4129-89ea-882a874e832e",
         "fromTable": "FactAtencionMedica",
         "fromColumn": "MedicoKey",
         "toTable": "DimMedico",
         "toColumn": "MedicoSK"
       },
       {
-        "name": "46ab00e9-7a2a-4741-a616-4ab5eeb1edf9",
+        "name": "c4bdbbf7-255b-4a71-bf1e-687fc95d0db2",
         "fromTable": "FactAtencionMedica",
         "fromColumn": "PacienteKey",
         "toTable": "DimPaciente",
         "toColumn": "PacienteSK"
       },
       {
-        "name": "9376310d-322b-41cd-9309-ed4357f0fc0c",
+        "name": "c63b3300-5235-4fb0-9880-aca6c3510f75",
         "fromTable": "FactAtencionMedica",
         "fromColumn": "ServicioKey",
         "toTable": "DimServicio",
         "toColumn": "ServicioSK"
       },
       {
-        "name": "b4abd992-b8b3-4dec-a3cc-e83ab6d040ec",
+        "name": "52c3f359-a58f-42f3-9d7d-4844fb7b4fb6",
         "fromTable": "FactAtencionMedica",
         "fromColumn": "FechaIngresoKey",
         "toTable": "DimTiempo",
