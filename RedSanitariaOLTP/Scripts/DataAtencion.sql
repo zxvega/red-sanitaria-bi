@@ -58,4 +58,46 @@ VALUES
 
 
 
+INSERT INTO [HIS].[Atencion] 
+(Id, FechaIngreso, FechaAlta, HoraIngreso, HoraAlta, HospitalId, ServicioId, UnidadId, MedicoId, PacienteId, AtencionOrigenId, TipoId, Diagnostico, Tratamiento)
+VALUES 
+(42, '2024-08-01', '2024-08-01', '08:00:00', '08:36:00', 1, 3, 1, 5, 100010, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(43, '2024-08-01', '2024-08-01', '08:41:00', '09:08:00', 1, 3, 1, 5, 100011, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(44, '2024-08-01', '2024-08-01', '09:13:00', '09:51:00', 1, 3, 1, 5, 100012, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(45, '2024-08-01', '2024-08-01', '09:56:00', '10:16:00', 1, 3, 1, 5, 100013, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(46, '2024-08-01', '2024-08-01', '10:21:00', '10:59:00', 1, 3, 1, 5, 100014, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(47, '2024-08-01', '2024-08-01', '11:04:00', '11:39:00', 1, 3, 1, 5, 100015, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(48, '2024-08-01', '2024-08-01', '11:44:00', '12:20:00', 1, 3, 1, 5, 100016, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(49, '2024-08-01', '2024-08-01', '12:25:00', '13:02:00', 1, 3, 1, 5, 100017, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+
+(50, '2024-08-01', '2024-08-01', '08:00:00', '08:35:00', 1, 3, 2, 6, 100018, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(51, '2024-08-01', '2024-08-01', '08:40:00', '09:15:00', 1, 3, 2, 6, 100019, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(52, '2024-08-01', '2024-08-01', '09:20:00', '09:58:00', 1, 3, 2, 6, 100020, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(53, '2024-08-01', '2024-08-01', '10:03:00', '10:40:00', 1, 3, 2, 6, 100021, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(54, '2024-08-01', '2024-08-01', '10:45:00', '11:20:00', 1, 3, 2, 6, 100022, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(55, '2024-08-01', '2024-08-01', '11:25:00', '12:00:00', 1, 3, 2, 6, 100023, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(56, '2024-08-01', '2024-08-01', '12:05:00', '12:42:00', 1, 3, 2, 6, 100024, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(57, '2024-08-01', '2024-08-01', '12:47:00', '13:22:00', 1, 3, 2, 6, 100025, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+
+(58, '2024-08-01', '2024-08-01', '08:00:00', '08:38:00', 1, 3, 3, 7, 100026, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(59, '2024-08-01', '2024-08-01', '08:43:00', '09:15:00', 1, 3, 3, 7, 100027, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(60, '2024-08-01', '2024-08-01', '09:20:00', '09:55:00', 1, 3, 3, 7, 100028, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(61, '2024-08-01', '2024-08-01', '10:00:00', '10:40:00', 1, 3, 3, 7, 100029, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(62, '2024-08-01', '2024-08-01', '10:45:00', '11:25:00', 1, 3, 3, 7, 100030, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(63, '2024-08-01', '2024-08-01', '11:30:00', '12:05:00', 1, 3, 3, 7, 100031, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(64, '2024-08-01', '2024-08-01', '12:10:00', '12:45:00', 1, 3, 3, 7, 100032, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(65, '2024-08-01', '2024-08-01', '12:50:00', '13:25:00', 1, 3, 3, 7, 100033, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+
+(66, '2024-08-01', '2024-08-01', '08:00:00', '08:34:00', 1, 3, 4, 8, 100034, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(67, '2024-08-01', '2024-08-01', '08:39:00', '09:10:00', 1, 3, 4, 8, 100035, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(68, '2024-08-01', '2024-08-01', '09:15:00', '09:50:00', 1, 3, 4, 8, 100036, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(69, '2024-08-01', '2024-08-01', '09:55:00', '10:30:00', 1, 3, 4, 8, 100037, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(70, '2024-08-01', '2024-08-01', '10:35:00', '11:10:00', 1, 3, 4, 8, 100038, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(71, '2024-08-01', '2024-08-01', '11:15:00', '11:40:00', 1, 3, 4, 8, 100039, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(72, '2024-08-01', '2024-08-01', '11:45:00', '12:10:00', 1, 3, 4, 8, 100040, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado'),
+(73, '2024-08-01', '2024-08-01', '12:15:00', '11:10:00', 1, 3, 4, 8, 100041, NULL, 1, 'Diagnostico Generado', 'Tratamiento Generado');
+
+
+
+
 SET IDENTITY_INSERT [HIS].[Atencion] OFF;  

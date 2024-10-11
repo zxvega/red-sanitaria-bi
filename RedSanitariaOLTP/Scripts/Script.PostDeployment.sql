@@ -26,5 +26,5 @@ Plantilla de script posterior a la implementación
 :r .\DataEstadoUnidadServicio.sql
 :r .\DataUnidadServicio.sql
 :r .\DataAtencion.sql
-:r .\DataCuenta.sql
-
+:r .\DataCuentaPaciente.sql
+:r .\DataDetalleCuentaPaciente.sql
