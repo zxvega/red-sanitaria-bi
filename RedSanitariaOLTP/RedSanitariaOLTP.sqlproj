@@ -96,6 +96,8 @@
     <Build Include="Security\Stored Procedures\GetPacienteChangesByRowVersion.sql" />
     <Build Include="Security\Stored Procedures\GetEstudioChangesByRowVersion.sql" />
     <Build Include="Security\Stored Procedures\GetAtencionChangesByRowVersion.sql" />
+    <None Include="Scripts\DataDetalleCuentaPaciente.sql" />
+    <Build Include="Security\Stored Procedures\GetCuentaChangesByRowVersion.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
@@ -117,6 +119,6 @@
     <None Include="Scripts\DataTipoAtencion.sql" />
     <None Include="Scripts\DataDirectorHospital.sql" />
     <None Include="Scripts\DataAtencion.sql" />
-    <None Include="Scripts\DataCuenta.sql" />
+    <None Include="Scripts\DataCuentaPaciente.sql" />
   </ItemGroup>
 </Project>

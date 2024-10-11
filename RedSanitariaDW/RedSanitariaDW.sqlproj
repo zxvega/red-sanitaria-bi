@@ -83,6 +83,7 @@
     <Build Include="Security\Stored Procedures\DW_MergeDimMedico.sql" />
     <Build Include="Security\Stored Procedures\DW_MergeDimPaciente.sql" />
     <Build Include="Security\Stored Procedures\DW_MergeFactAtencion.sql" />
+    <Build Include="Security\Stored Procedures\DW_MergeFactCuenta.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\dbo\DimMedico.sql" />
